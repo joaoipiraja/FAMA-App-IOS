@@ -13,6 +13,11 @@
 		3C68EA7D2270BBF400FEC596 /* QrCodeScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA7C2270BBF400FEC596 /* QrCodeScanner.storyboard */; };
 		3C68EA7F2270BC8800FEC596 /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA7E2270BC8800FEC596 /* Vote.storyboard */; };
 		3C68EA812270BCA300FEC596 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA802270BCA300FEC596 /* VoteViewController.swift */; };
+		3C68EA832270C7DB00FEC596 /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA822270C7DB00FEC596 /* Events.json */; };
+		3C68EA872270DF8700FEC596 /* ArtistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA852270DF8700FEC596 /* ArtistTableViewCell.swift */; };
+		3C68EA882270DF8700FEC596 /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA862270DF8700FEC596 /* ArtistTableViewCell.xib */; };
+		3C68EA8A2270F2F300FEC596 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA892270F2F300FEC596 /* VoteView.swift */; };
+		3C68EA8C2270F49900FEC596 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA8B2270F49900FEC596 /* UIColorExtension.swift */; };
 		4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3695226AA0C2008B7660 /* AppDelegate.swift */; };
 		4E2E3698226AA0C2008B7660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3697226AA0C2008B7660 /* LoginViewController.swift */; };
 		4E2E369B226AA0C2008B7660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E3699226AA0C2008B7660 /* Main.storyboard */; };
@@ -27,6 +32,11 @@
 		3C68EA7C2270BBF400FEC596 /* QrCodeScanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QrCodeScanner.storyboard; sourceTree = "<group>"; };
 		3C68EA7E2270BC8800FEC596 /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
 		3C68EA802270BCA300FEC596 /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		3C68EA822270C7DB00FEC596 /* Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
+		3C68EA852270DF8700FEC596 /* ArtistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTableViewCell.swift; sourceTree = "<group>"; };
+		3C68EA862270DF8700FEC596 /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
+		3C68EA892270F2F300FEC596 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		3C68EA8B2270F49900FEC596 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4E2E3692226AA0C2008B7660 /* FAMAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FAMAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2E3695226AA0C2008B7660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2E3697226AA0C2008B7660 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +80,15 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		3C68EA842270DF5500FEC596 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3C68EA852270DF8700FEC596 /* ArtistTableViewCell.swift */,
+				3C68EA862270DF8700FEC596 /* ArtistTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		4E2E3689226AA0C2008B7660 = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +111,12 @@
 				4E2E36A1226AA0C3008B7660 /* Info.plist */,
 				4E2E3695226AA0C2008B7660 /* AppDelegate.swift */,
 				4E2E369C226AA0C3008B7660 /* Assets.xcassets */,
+				3C68EA822270C7DB00FEC596 /* Events.json */,
 				3C68EA742270BB0E00FEC596 /* Controllers */,
 				3C68EA752270BB1900FEC596 /* Storyboards */,
+				3C68EA842270DF5500FEC596 /* Cells */,
+				3C68EA892270F2F300FEC596 /* VoteView.swift */,
+				3C68EA8B2270F49900FEC596 /* UIColorExtension.swift */,
 			);
 			path = FAMAApp;
 			sourceTree = "<group>";
@@ -158,9 +181,11 @@
 			files = (
 				4E2E36A0226AA0C3008B7660 /* LaunchScreen.storyboard in Resources */,
 				3C68EA772270BB6A00FEC596 /* Events.storyboard in Resources */,
+				3C68EA882270DF8700FEC596 /* ArtistTableViewCell.xib in Resources */,
 				3C68EA7F2270BC8800FEC596 /* Vote.storyboard in Resources */,
 				4E2E369D226AA0C3008B7660 /* Assets.xcassets in Resources */,
 				4E2E369B226AA0C2008B7660 /* Main.storyboard in Resources */,
+				3C68EA832270C7DB00FEC596 /* Events.json in Resources */,
 				3C68EA7D2270BBF400FEC596 /* QrCodeScanner.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,8 +200,11 @@
 				4E2E3698226AA0C2008B7660 /* LoginViewController.swift in Sources */,
 				3C68EA7B2270BBE700FEC596 /* QrCodeScannerViewController.swift in Sources */,
 				3C68EA812270BCA300FEC596 /* VoteViewController.swift in Sources */,
+				3C68EA8C2270F49900FEC596 /* UIColorExtension.swift in Sources */,
 				4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */,
+				3C68EA872270DF8700FEC596 /* ArtistTableViewCell.swift in Sources */,
 				3C68EA792270BBDA00FEC596 /* EventsViewController.swift in Sources */,
+				3C68EA8A2270F2F300FEC596 /* VoteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7GM8G5V55;
+				DEVELOPMENT_TEAM = 446LGN7Z63;
 				INFOPLIST_FILE = FAMAApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -341,7 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7GM8G5V55;
+				DEVELOPMENT_TEAM = 446LGN7Z63;
 				INFOPLIST_FILE = FAMAApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

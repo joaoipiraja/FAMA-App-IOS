@@ -21,8 +21,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="ETl-ac-zWu" kind="presentation" id="vf0-K5-pxc"/>
-                        <segue destination="5Oc-Fa-rKU" kind="presentation" id="6ge-YW-amD"/>
+                        <segue destination="ETl-ac-zWu" kind="presentation" identifier="events" id="vf0-K5-pxc"/>
+                        <segue destination="5Oc-Fa-rKU" kind="presentation" identifier="qrCode" id="6ge-YW-amD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
