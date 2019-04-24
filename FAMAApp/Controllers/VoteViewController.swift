@@ -12,7 +12,7 @@ class VoteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        confirmVote(with: .down)
     }
     
     func confirmVote(with vote: Vote) {
@@ -49,6 +49,7 @@ class VoteViewController: UIViewController {
                 voteView.center = self.view.center
             }, completion: { _ in
                 voteView.removeFromSuperview()
+                self.dismiss(animated: true, completion: nil)
             })
         }
     }

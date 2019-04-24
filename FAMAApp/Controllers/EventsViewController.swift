@@ -107,6 +107,7 @@ class EventsViewController: UIViewController {
     }
     
     @IBAction func vote(_ sender: UIBarButtonItem) {
+        present(VoteViewController(), animated: true, completion: nil)
     }
     
 }
@@ -132,7 +133,7 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath) as! ArtistTableViewCell
         cell.selectionStyle = .none
         cell.populate(index: indexPath.item + 1, name: events[indexPath.item])
-        let cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/3
+        let cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/4
         let imageViewHeight = cellHeight - 32
         let missingSpace = (imageViewHeight - cell.eventNumberLabel.frame.height - cell.eventNameLabel.frame.height)/2
         cell.eventNumberLabelTopConstraint.constant = cell.eventImageView.frame.origin.y + missingSpace
@@ -141,7 +142,26 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (UIScreen.main.bounds.height - imagesScrollView.frame.height)/3
+        return (UIScreen.main.bounds.height - imagesScrollView.frame.height)/4
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y != 0 && scrollView === imagesScrollView {
+            scrollView.contentOffset.y = 0
+        }
+        
+        if scrollView === eventsTableView {
+            let minY = UIApplication.shared.statusBarFrame.height
+            let maxY = 0.48 * UIScreen.main.bounds.height
+            var ratio = scrollView.contentOffset.y/maxY
+            if ratio > 1 { ratio = 1 }
+            if ratio < 0 { ratio = 0 }
+            let newY = maxY * (1 - ratio)
+            if newY <= minY && eventsTableView.frame.origin.y == minY { return }
+            eventsTableView.frame.origin.y = newY > minY ? newY : minY
+            eventsTableView.frame.size.height = UIScreen.main.bounds.height - newY
+            view.layoutIfNeeded()
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
