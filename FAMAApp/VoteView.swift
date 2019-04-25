@@ -27,6 +27,7 @@ class VoteView: UIView {
         
         label = UILabel(frame: .zero)
         label.text = "VOTO CONFIRMADO!"
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         label.textAlignment = .center
         addSubview(label)
@@ -41,20 +42,6 @@ class VoteView: UIView {
         case .down:
             imageView.image = UIImage(named: "downvote-black")
         }
-        
-//        translatesAutoresizingMaskIntoConstraints = false
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//        imageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -(21.5 + 16)/2).isActive = true
-//        imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.33).isActive = true
-//        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-//        
-//        label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor).isActive = true
-//        label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor).isActive = true
-//        label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16).isActive = true
-//        label.heightAnchor.constraint(equalToConstant: 21.5).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

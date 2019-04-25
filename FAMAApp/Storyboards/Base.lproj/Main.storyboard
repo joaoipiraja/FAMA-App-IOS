@@ -34,7 +34,7 @@
                 <viewControllerPlaceholder storyboardName="Events" id="ETl-ac-zWu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgb-SO-YSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="-139"/>
+            <point key="canvasLocation" x="757" y="315"/>
         </scene>
         <!--QrCodeScanner-->
         <scene sceneID="yg1-1f-wcf">
@@ -42,7 +42,7 @@
                 <viewControllerPlaceholder storyboardName="QrCodeScanner" id="5Oc-Fa-rKU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrF-1i-EzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="183"/>
+            <point key="canvasLocation" x="797" y="470"/>
         </scene>
     </scenes>
 </document>

@@ -19,25 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwQ-FD-haR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="353.33333333333331"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="478.33333333333331"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTC-BZ-69V">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="353.33333333333331"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTC-BZ-69V">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="478.33333333333331"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLi-ze-qLp">
-                                        <rect key="frame" x="0.0" y="236.66666666666666" width="414" height="116.66666666666666"/>
+                                        <rect key="frame" x="0.0" y="368.33333333333331" width="414" height="110"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7y-mf-DsD">
-                                                <rect key="frame" x="16" y="16" width="382" height="68.666666666666671"/>
+                                                <rect key="frame" x="16" y="16" width="382" height="62"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apresentando" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQM-om-0jP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atração X - Fulano" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-CX-6qn">
-                                                        <rect key="frame" x="0.0" y="34.333333333333343" width="382" height="34.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="35" width="382" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -52,11 +53,11 @@
                                                     <constraint firstItem="yYv-CX-6qn" firstAttribute="leading" secondItem="VQM-om-0jP" secondAttribute="leading" id="Eun-Ll-V43"/>
                                                     <constraint firstAttribute="trailing" secondItem="VQM-om-0jP" secondAttribute="trailing" id="ebD-ow-5ML"/>
                                                     <constraint firstItem="VQM-om-0jP" firstAttribute="top" secondItem="v7y-mf-DsD" secondAttribute="top" id="toq-rl-DOd"/>
-                                                    <constraint firstItem="yYv-CX-6qn" firstAttribute="top" secondItem="VQM-om-0jP" secondAttribute="bottom" id="vFa-GC-Dlu"/>
+                                                    <constraint firstItem="yYv-CX-6qn" firstAttribute="top" secondItem="VQM-om-0jP" secondAttribute="bottom" constant="4" id="vFa-GC-Dlu"/>
                                                 </constraints>
                                             </view>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-AX-cRo">
-                                                <rect key="frame" x="0.0" y="92.666666666666657" width="414" height="16"/>
+                                                <rect key="frame" x="0.0" y="86" width="414" height="16"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="ymf-wl-clL"/>
@@ -83,7 +84,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="iLi-ze-qLp" firstAttribute="height" secondItem="kwQ-FD-haR" secondAttribute="height" multiplier="0.33" id="DCd-fE-RES"/>
+                                    <constraint firstItem="iLi-ze-qLp" firstAttribute="height" secondItem="kwQ-FD-haR" secondAttribute="height" multiplier="0.23" id="DCd-fE-RES"/>
                                     <constraint firstItem="aTC-BZ-69V" firstAttribute="height" secondItem="kwQ-FD-haR" secondAttribute="height" id="PFi-Bs-pdF"/>
                                     <constraint firstItem="aTC-BZ-69V" firstAttribute="leading" secondItem="kwQ-FD-haR" secondAttribute="leading" id="XaW-2d-t0N"/>
                                     <constraint firstAttribute="bottom" secondItem="iLi-ze-qLp" secondAttribute="bottom" id="b4o-gk-YE9"/>
@@ -94,7 +95,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b9H-2Q-RqT">
-                                <rect key="frame" x="0.0" y="353.33333333333326" width="414" height="382.66666666666674"/>
+                                <rect key="frame" x="0.0" y="478.33333333333326" width="414" height="257.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhx-Sv-BLR">
@@ -104,7 +105,7 @@
                                     <barButtonItem title="Vote" image="qrcode-orange" id="LYW-sP-M5Y">
                                         <color key="tintColor" red="0.8950536847114563" green="0.59451383352279663" blue="0.3960273265838623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <action selector="vote:" destination="gMl-xo-6YB" id="nKC-KA-trh"/>
+                                            <action selector="scanQrCode:" destination="gMl-xo-6YB" id="nKC-KA-trh"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -114,7 +115,7 @@
                         <constraints>
                             <constraint firstItem="b9H-2Q-RqT" firstAttribute="leading" secondItem="2AP-PJ-8uo" secondAttribute="leading" id="FCJ-3Y-E2S"/>
                             <constraint firstItem="b9H-2Q-RqT" firstAttribute="top" secondItem="kwQ-FD-haR" secondAttribute="bottom" id="FSk-Ru-4wD"/>
-                            <constraint firstItem="kwQ-FD-haR" firstAttribute="height" secondItem="WPV-TE-o1G" secondAttribute="height" multiplier="0.48" id="GLr-cI-u1r"/>
+                            <constraint firstItem="kwQ-FD-haR" firstAttribute="height" secondItem="WPV-TE-o1G" secondAttribute="height" multiplier="0.65" id="GLr-cI-u1r"/>
                             <constraint firstItem="qhx-Sv-BLR" firstAttribute="trailing" secondItem="2AP-PJ-8uo" secondAttribute="trailing" id="Mcw-8S-Ng5"/>
                             <constraint firstItem="b9H-2Q-RqT" firstAttribute="trailing" secondItem="2AP-PJ-8uo" secondAttribute="trailing" id="Meg-in-YGL"/>
                             <constraint firstItem="qhx-Sv-BLR" firstAttribute="leading" secondItem="2AP-PJ-8uo" secondAttribute="leading" id="O8G-an-gI8"/>
@@ -133,11 +134,20 @@
                         <outlet property="imagesScrollView" destination="aTC-BZ-69V" id="sca-Wd-diN"/>
                         <outlet property="pageControl" destination="YaG-AX-cRo" id="Oz7-Jf-b9B"/>
                         <outlet property="statusLabel" destination="VQM-om-0jP" id="A7v-hU-jTR"/>
+                        <segue destination="aFZ-y9-mvS" kind="presentation" identifier="scanQrCode" id="Myu-2B-KxJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hI-NE-p7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-414.49275362318843" y="-193.20652173913044"/>
+        </scene>
+        <!--QrCodeScanner-->
+        <scene sceneID="BNu-rr-HMm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QrCodeScanner" id="aFZ-y9-mvS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7o-oi-nGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="464" y="-242"/>
         </scene>
     </scenes>
     <resources>

@@ -22,9 +22,14 @@ class EventsViewController: UIViewController {
     
     var events = [String]()
     var currentPresentingIndex = -1
+    var reloadTable = 0
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        if reloadTable < 2 {
+            eventsTableView.reloadData()
+            reloadTable += 1
+        }
     }
     
     override func viewDidLoad() {
@@ -33,32 +38,34 @@ class EventsViewController: UIViewController {
         let nib = UINib(nibName: "ArtistTableViewCell", bundle: .main)
         eventsTableView.register(nib, forCellReuseIdentifier: "artistCell")
         eventsTableView.contentInsetAdjustmentBehavior = .never
-        eventsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+        eventsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         
         eventsTableView.dataSource = self
         eventsTableView.delegate = self
         imagesScrollView.delegate = self
         
-        let blur = UIBlurEffect(style: .dark)
-        let blurred = UIVisualEffectView(effect: blur)
-        blurred.frame = blurredBackground.frame
-        blurred.frame.origin = .zero
-        blurredBackground.insertSubview(blurred, at: 0)
-        
         statusLabel.text = "Apresentando agora"
         eventLabel.text = events.first ?? "Sem apresentações no momento"
         
-        currentEventImageView = UIImageView(frame: imagesScrollView.frame)
+        let imageFrame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.65))
+        currentEventImageView = UIImageView(frame: imageFrame)
         currentEventImageView.contentMode = .scaleAspectFill
         currentEventImageView.clipsToBounds = true
+        currentEventImageView.backgroundColor = .clear
         
-        nextEventImageView = UIImageView(frame: imagesScrollView.frame)
+        nextEventImageView = UIImageView(frame: imageFrame)
         nextEventImageView.contentMode = .scaleAspectFill
         nextEventImageView.clipsToBounds = true
+        nextEventImageView.backgroundColor = .clear
         
-        let screenWidth = UIScreen.main.bounds.width
-        imagesScrollView.contentSize = CGSize(width: screenWidth * 2, height: imagesScrollView.frame.height)
-        nextEventImageView.frame.origin.x = screenWidth
+        let blur = UIBlurEffect(style: .dark)
+        let blurred = UIVisualEffectView(effect: blur)
+        let blurFrame = CGRect(origin: .zero, size: CGSize(width: imageFrame.width, height: imageFrame.height * 0.23))
+        blurred.frame = blurFrame
+        blurredBackground.insertSubview(blurred, at: 0)
+        
+        imagesScrollView.contentSize = CGSize(width: imageFrame.width * 2, height: imageFrame.height)
+        nextEventImageView.frame.origin.x = imageFrame.width
         imagesScrollView.addSubview(currentEventImageView)
         imagesScrollView.addSubview(nextEventImageView)
         
@@ -71,13 +78,13 @@ class EventsViewController: UIViewController {
         guard let jsonResult = try? JSONSerialization.jsonObject(with: data, options: []) as? [String] else { return }
         events = jsonResult
         eventsTableView.reloadData()
-        reloadImages(currentIndex: 0)
+        reloadImages(currentIndex: -1)
         reloadLabels(page: 0)
     }
     
     func reloadImages(currentIndex: Int) {
-        if !(currentIndex >= 0 && currentIndex < events.count) { return }
-        currentPresentingIndex = currentIndex
+        if currentIndex >= events.count { return }
+        currentPresentingIndex = currentIndex < 0 ? -1 : currentIndex
         currentEventImageView.image = UIImage(named: "\(currentIndex + 1)")
         if currentIndex + 2 >= events.count { return }
         nextEventImageView.image = UIImage(named: "\(currentIndex + 2)")
@@ -87,7 +94,11 @@ class EventsViewController: UIViewController {
         if page < 0 { return }
         if page == 0 {
             statusLabel.text = "Apresentando agora"
-            eventLabel.text = "Atração \(currentPresentingIndex + 1) - \(events[currentPresentingIndex])"
+            if currentPresentingIndex == -1 {
+                eventLabel.text = "Sem apresentações no momento"
+            } else {
+                eventLabel.text = "Atração \(currentPresentingIndex + 1) - \(events[currentPresentingIndex])"
+            }
         } else {
             statusLabel.text = "Próxima apresentação"
             if currentPresentingIndex + 1 >= events.count {
@@ -106,8 +117,8 @@ class EventsViewController: UIViewController {
         })
     }
     
-    @IBAction func vote(_ sender: UIBarButtonItem) {
-        present(VoteViewController(), animated: true, completion: nil)
+    @IBAction func scanQrCode(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "scanQrCode", sender: nil)
     }
     
 }
@@ -133,7 +144,7 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath) as! ArtistTableViewCell
         cell.selectionStyle = .none
         cell.populate(index: indexPath.item + 1, name: events[indexPath.item])
-        let cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/4
+        let cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/2
         let imageViewHeight = cellHeight - 32
         let missingSpace = (imageViewHeight - cell.eventNumberLabel.frame.height - cell.eventNameLabel.frame.height)/2
         cell.eventNumberLabelTopConstraint.constant = cell.eventImageView.frame.origin.y + missingSpace
@@ -142,17 +153,17 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (UIScreen.main.bounds.height - imagesScrollView.frame.height)/4
+        return (UIScreen.main.bounds.height - imagesScrollView.frame.height)/2
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y != 0 && scrollView === imagesScrollView {
             scrollView.contentOffset.y = 0
         }
-        
+                
         if scrollView === eventsTableView {
             let minY = UIApplication.shared.statusBarFrame.height
-            let maxY = 0.48 * UIScreen.main.bounds.height
+            let maxY = imagesScrollView.frame.height
             var ratio = scrollView.contentOffset.y/maxY
             if ratio > 1 { ratio = 1 }
             if ratio < 0 { ratio = 0 }
