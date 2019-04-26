@@ -135,6 +135,7 @@
                         <outlet property="pageControl" destination="YaG-AX-cRo" id="Oz7-Jf-b9B"/>
                         <outlet property="statusLabel" destination="VQM-om-0jP" id="A7v-hU-jTR"/>
                         <segue destination="aFZ-y9-mvS" kind="presentation" identifier="scanQrCode" id="Myu-2B-KxJ"/>
+                        <segue destination="W9n-nq-Xc5" kind="presentation" identifier="vote" id="GR6-gM-XIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hI-NE-p7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,6 +149,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7o-oi-nGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="464" y="-242"/>
+        </scene>
+        <!--Vote-->
+        <scene sceneID="QH5-f3-FSi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Vote" id="W9n-nq-Xc5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1q7-kh-Q2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="430" y="-141"/>
         </scene>
     </scenes>
     <resources>

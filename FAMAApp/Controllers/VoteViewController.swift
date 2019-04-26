@@ -18,6 +18,8 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var upvoteView: UIView!
     @IBOutlet weak var downvoteView: UIView!
     
+    var artist: Artist?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +32,15 @@ class VoteViewController: UIViewController {
         
         upvoteView.layer.cornerRadius = 10
         upvoteView.layer.masksToBounds = true
+        
         downvoteView.layer.cornerRadius = 10
         downvoteView.layer.masksToBounds = true
+        
+        if let artist = artist {
+            eventNumberLabel.text = "Atração \(artist.number)"
+            eventNameLabel.text = artist.name
+            artistImageView.image = UIImage(named: "\(artist.number)")
+        }
         
         loadExample()
     }
@@ -109,7 +118,7 @@ class VoteViewController: UIViewController {
                 voteView.imageView.center = imageViewCenter
                 voteView.label.frame.origin.y = voteView.imageView.frame.origin.y + voteView.imageView.frame.height + 16
             }, completion: { _ in
-                self.navigationController?.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             })
         }
         

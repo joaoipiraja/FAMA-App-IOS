@@ -20,8 +20,9 @@ class EventsViewController: UIViewController {
     var currentEventImageView: UIImageView!
     var nextEventImageView: UIImageView!
     
-    var events = [String]()
-    var currentPresentingIndex = -1
+    var artists = [Artist]()
+    
+    var currentArtist: Artist?
     var reloadTable = 0
     var cellHeight: CGFloat = 100
     
@@ -47,7 +48,7 @@ class EventsViewController: UIViewController {
         imagesScrollView.delegate = self
         
         statusLabel.text = "Apresentando agora"
-        eventLabel.text = events.first ?? "Sem apresentações no momento"
+        eventLabel.text = artists.first?.eventName ?? "Sem apresentações no momento"
         
         let imageFrame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.65))
         currentEventImageView = UIImageView(frame: imageFrame)
@@ -75,39 +76,44 @@ class EventsViewController: UIViewController {
     }
     
     func loadJson() {
-        guard let path = Bundle.main.path(forResource: "Events", ofType: "json") else { return }
+        guard let path = Bundle.main.path(forResource: "Artists", ofType: "json") else { return }
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: []) else { return }
-        guard let jsonResult = try? JSONSerialization.jsonObject(with: data, options: []) as? [String] else { return }
-        events = jsonResult
-        eventsTableView.reloadData()
-        reloadImages(currentIndex: -1)
-        reloadLabels(page: 0)
+        guard let artists = try? JSONDecoder().decode([Artist].self, from: data) else { return }
+        self.artists = artists
+        self.currentArtist = artists[4]
+        self.eventsTableView.reloadData()
+        self.reloadImages()
+        self.reloadLabels(page: 0)
     }
     
-    func reloadImages(currentIndex: Int) {
-        if currentIndex >= events.count { return }
-        currentPresentingIndex = currentIndex < 0 ? -1 : currentIndex
-        currentEventImageView.image = UIImage(named: "\(currentIndex + 1)")
-        if currentIndex + 2 >= events.count { return }
-        nextEventImageView.image = UIImage(named: "\(currentIndex + 2)")
+    func reloadImages() {
+        if let artist = currentArtist {
+            currentEventImageView.image = UIImage(named: "\(artist.number)")
+            nextEventImageView.image = UIImage(named: "\(artist.number + 1)")
+        } else if let first = artists.first {
+            nextEventImageView.image = UIImage(named: "\(first.number)")
+        }
     }
     
     func reloadLabels(page: Int) {
         if page < 0 { return }
         if page == 0 {
             statusLabel.text = "Apresentando agora"
-            if currentPresentingIndex == -1 {
-                eventLabel.text = "Sem apresentações no momento"
+            if let artist = currentArtist {
+                eventLabel.text = artist.eventName
             } else {
-                eventLabel.text = "Atração \(currentPresentingIndex + 1) - \(events[currentPresentingIndex])"
+                eventLabel.text = "Sem apresentações no momento"
             }
         } else {
             statusLabel.text = "Próxima apresentação"
-            if currentPresentingIndex + 1 >= events.count {
-                eventLabel.text = "Sem próximas apresentações"
+            if let artist = currentArtist {
+                if artist.number == artists.count {
+                    eventLabel.text = "Sem apresentações futuras"
+                } else {
+                    eventLabel.text = artists[artist.number].eventName
+                }
             } else {
-                let index = currentPresentingIndex + 1
-                eventLabel.text = "Atração \(index + 1) - \(events[index])"
+                eventLabel.text = artists.first?.eventName
             }
         }
     }
@@ -119,10 +125,32 @@ class EventsViewController: UIViewController {
         })
     }
     
-    @IBAction func scanQrCode(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "scanQrCode", sender: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "scanQrCode" {
+            let destination = segue.destination as? QrCodeScannerViewController
+            destination?.delegate = self
+        }
+        if segue.identifier == "vote" {
+            let destination = segue.destination as? VoteViewController
+            destination?.artist = currentArtist
+        }
     }
     
+    @IBAction func scanQrCode(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "scanQrCode", sender: currentArtist)
+    }
+    
+}
+
+extension EventsViewController: QrCodeScannerDelegate {
+    func didScan(with state: QrCodeScannerStates) {
+        switch state {
+        case .success:
+            performSegue(withIdentifier: "vote", sender: currentArtist)
+        case .failure:
+            break
+        }
+    }
 }
 
 extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -139,13 +167,13 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return artists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath) as! ArtistTableViewCell
         cell.selectionStyle = .none
-        cell.populate(index: indexPath.item + 1, name: events[indexPath.item])
+        cell.populate(artist: artists[indexPath.item])
         let imageViewHeight = cellHeight - 16
         let missingSpace = (imageViewHeight - cell.eventNumberLabel.frame.height - cell.eventNameLabel.frame.height)/2
         cell.eventNumberLabelTopConstraint.constant = cell.eventImageView.frame.origin.y + missingSpace

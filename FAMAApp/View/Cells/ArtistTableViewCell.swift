@@ -24,10 +24,10 @@ class ArtistTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func populate(index: Int, name: String) {
-        eventImageView.image = UIImage(named: "\(index)")
-        eventNumberLabel.text = "Atração \(index)"
-        eventNameLabel.text = name
+    func populate(artist: Artist) {
+        eventImageView.image = UIImage(named: "\(artist.number)")
+        eventNumberLabel.text = "Atração \(artist.number)"
+        eventNameLabel.text = artist.name
     }
     
 }

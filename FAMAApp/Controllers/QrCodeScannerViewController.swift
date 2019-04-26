@@ -8,21 +8,25 @@
 
 import UIKit
 
+enum QrCodeScannerStates {
+    case success
+    case failure
+}
+
+protocol QrCodeScannerDelegate {
+    func didScan(with: QrCodeScannerStates)
+}
+
 class QrCodeScannerViewController: UIViewController {
 
+    var delegate: QrCodeScannerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.vote()
+            self.dismiss(animated: true, completion: nil)
+            self.delegate?.didScan(with: .success)
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    func vote() {
-        performSegue(withIdentifier: "vote", sender: nil)
     }
 
 }
