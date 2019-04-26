@@ -15,6 +15,9 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var eventNumberLabel: UILabel!
     @IBOutlet weak var eventNameLabel: UILabel!
     
+    @IBOutlet weak var upvoteView: UIView!
+    @IBOutlet weak var downvoteView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +27,11 @@ class VoteViewController: UIViewController {
         let blurFrame = CGRect(origin: .zero, size: CGSize(width: imageFrame.width, height: imageFrame.height * 0.2))
         blurred.frame = blurFrame
         blurredBackground.insertSubview(blurred, at: 0)
+        
+        upvoteView.layer.cornerRadius = 10
+        upvoteView.layer.masksToBounds = true
+        downvoteView.layer.cornerRadius = 10
+        downvoteView.layer.masksToBounds = true
         
         loadExample()
     }
@@ -37,8 +45,21 @@ class VoteViewController: UIViewController {
         eventNameLabel.text = jsonResult.first ?? ""
     }
     
-    @IBAction func vote() {
-        confirmVote(with: .down)
+    @IBAction func tryToVote(_ sender: UIButton) {
+        if sender.superview === upvoteView {
+            vote(with: .up)
+        }
+        if sender.superview === downvoteView {
+            vote(with: .down)
+        }
+    }
+    
+    func vote(with vote: Vote) {
+        let storyboard = UIStoryboard(name: "ConfirmVoteAlert", bundle: .main)
+        let alert = storyboard.instantiateViewController(withIdentifier: "confirmVoteAlert") as! ConfirmVoteAlertViewController
+        alert.populate(withVote: vote, withEvent: "Atração 1 - Banda Update")
+        alert.setOnConfirm { self.confirmVote(with: vote) }
+        alert.present(onViewController: self)
     }
     
     func confirmVote(with vote: Vote) {

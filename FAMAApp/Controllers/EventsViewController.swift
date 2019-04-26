@@ -23,9 +23,11 @@ class EventsViewController: UIViewController {
     var events = [String]()
     var currentPresentingIndex = -1
     var reloadTable = 0
+    var cellHeight: CGFloat = 100
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/2.5
         if reloadTable < 2 {
             eventsTableView.reloadData()
             reloadTable += 1
@@ -144,16 +146,15 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "artistCell", for: indexPath) as! ArtistTableViewCell
         cell.selectionStyle = .none
         cell.populate(index: indexPath.item + 1, name: events[indexPath.item])
-        let cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/2
-        let imageViewHeight = cellHeight - 32
+        let imageViewHeight = cellHeight - 16
         let missingSpace = (imageViewHeight - cell.eventNumberLabel.frame.height - cell.eventNameLabel.frame.height)/2
         cell.eventNumberLabelTopConstraint.constant = cell.eventImageView.frame.origin.y + missingSpace
-        cell.eventImageView.layer.cornerRadius = imageViewHeight/2 + 7
+        cell.eventImageView.layer.cornerRadius = imageViewHeight/2
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (UIScreen.main.bounds.height - imagesScrollView.frame.height)/2
+        return cellHeight
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
