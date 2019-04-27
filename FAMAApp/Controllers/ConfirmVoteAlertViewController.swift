@@ -13,6 +13,7 @@ class ConfirmVoteAlertViewController: UIViewController {
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var voteLabel: UILabel!
     @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var confirmButton: UIButton!
     
     private var onConfirm: (() -> Void)?
     private var eventName: String?
@@ -27,10 +28,12 @@ class ConfirmVoteAlertViewController: UIViewController {
         alertView.layer.cornerRadius = 10
         alertView.layer.masksToBounds = true
         
+        
         guard let vote = vote, let event = eventName else { return }
         voteLabel.text = vote == .up ? "SIM" : "NÃO"
         voteLabel.textColor = UIColor(rgb: vote.rawValue)
         eventNameLabel.text = "à \(event)?"
+        confirmButton.setTitleColor(UIColor(rgb: vote.rawValue), for: .highlighted)
     }
     
     func populate(withVote vote: Vote, withEvent event: String) {

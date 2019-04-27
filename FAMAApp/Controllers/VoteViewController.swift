@@ -20,13 +20,14 @@ class VoteViewController: UIViewController {
     
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
-    var remainingSeconds = 2
+    var remainingSeconds = 30
+    var timer: Timer?
     var artist: Artist?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageFrame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.65))
+        let imageFrame = CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.6))
         let blur = UIBlurEffect(style: .dark)
         let blurred = UIVisualEffectView(effect: blur)
         let blurFrame = CGRect(origin: .zero, size: CGSize(width: imageFrame.width, height: imageFrame.height * 0.2))
@@ -45,24 +46,21 @@ class VoteViewController: UIViewController {
             artistImageView.image = UIImage(named: "\(artist.number)")
         }
         
-        loadExample()
+        loadArtist()
         startTimer()
         
     }
     
-    func loadExample() {
-        guard let path = Bundle.main.path(forResource: "Events", ofType: "json") else { return }
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: []) else { return }
-        guard let jsonResult = try? JSONSerialization.jsonObject(with: data, options: []) as? [String] else { return }
-        artistImageView.image = UIImage(named: "1")
-        eventNumberLabel.text = "Atração 1"
-        eventNameLabel.text = jsonResult.first ?? ""
+    func loadArtist() {
+        artistImageView.image = UIImage(named: "\(artist?.number ?? 0)")
+        eventNumberLabel.text = "Atração \(artist?.number ?? 0)"
+        eventNameLabel.text = artist?.name
     }
     
     func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             self.remainingSeconds -= 1
-            self.remainingTimeLabel.text = self.remainingSeconds > 10 ? "00:\(self.remainingSeconds)" : "00:0\(self.remainingSeconds)"
+            self.remainingTimeLabel.text = self.remainingSeconds >= 10 ? "00:\(self.remainingSeconds)" : "00:0\(self.remainingSeconds)"
             if self.remainingSeconds == 0 {
                 timer.invalidate()
                 self.timeout()
@@ -87,10 +85,14 @@ class VoteViewController: UIViewController {
     }
     
     func vote(with vote: Vote) {
+        guard let artist = artist else { return }
         let storyboard = UIStoryboard(name: "ConfirmVoteAlert", bundle: .main)
         let alert = storyboard.instantiateViewController(withIdentifier: "confirmVoteAlert") as! ConfirmVoteAlertViewController
-        alert.populate(withVote: vote, withEvent: "Atração 1 - Banda Update")
-        alert.setOnConfirm { self.confirmVote(with: vote) }
+        alert.populate(withVote: vote, withEvent: artist.name)
+        alert.setOnConfirm {
+            self.confirmVote(with: vote)
+            self.timer?.invalidate()
+        }
         alert.present(onViewController: self)
     }
     
@@ -127,40 +129,26 @@ class VoteViewController: UIViewController {
             })
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn, animations: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            UIView.animate(withDuration: 1.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn, animations: {
                 voteView.imageView.frame.size = CGSize(width: voteView.imageView.frame.size.width * 1.2, height: voteView.imageView.frame.size.height * 1.2)
                 voteView.imageView.center = imageViewCenter
                 voteView.label.frame.origin.y = voteView.imageView.frame.origin.y + voteView.imageView.frame.height + 16 * 1.2
             })
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn, animations: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.35) {
+            UIView.animate(withDuration: 1.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn, animations: {
                 voteView.imageView.frame.size = CGSize(width: voteView.imageView.frame.size.width/1.2, height: voteView.imageView.frame.size.height/1.2)
                 voteView.imageView.center = imageViewCenter
                 voteView.label.frame.origin.y = voteView.imageView.frame.origin.y + voteView.imageView.frame.height + 16
-            }, completion: { _ in
-                self.dismiss(animated: true, completion: nil)
             })
         }
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-//            UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn, animations: {
-//                voteView.imageView.frame.origin.x = UIScreen.main.bounds.width
-//                voteView.label.frame.origin.x = UIScreen.main.bounds.width
-//            })
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//            UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseIn, animations: {
-//                voteView.frame.size.height = .zero
-//                voteView.center = self.view.center
-//            }, completion: { _ in
-//                voteView.removeFromSuperview()
-//                self.navigationController?.dismiss(animated: true, completion: nil)
-//            })
-//        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+             self.dismiss(animated: true, completion: nil)
+        }
+        
     }
 
 }

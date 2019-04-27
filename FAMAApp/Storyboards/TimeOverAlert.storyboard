@@ -58,28 +58,23 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Do-4q-LJ0">
                                         <rect key="frame" x="0.0" y="176.66666666666663" width="290" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UV-gJ-zpt">
-                                                <rect key="frame" x="16" y="11.333333333333371" width="258" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5A0-cf-46q">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <state key="normal" title="OK">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="dismiss:" destination="clo-Vc-Cuz" eventType="touchUpInside" id="evR-xM-pGC"/>
+                                                    <action selector="confirm:" destination="clo-Vc-Cuz" eventType="touchUpInside" id="TOZ-7j-PM9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="5A0-cf-46q" secondAttribute="bottom" id="2E1-HO-mBP"/>
-                                            <constraint firstItem="5UV-gJ-zpt" firstAttribute="centerY" secondItem="4Do-4q-LJ0" secondAttribute="centerY" id="8yx-er-rrc"/>
-                                            <constraint firstAttribute="trailing" secondItem="5UV-gJ-zpt" secondAttribute="trailing" constant="16" id="McT-rZ-FxI"/>
                                             <constraint firstItem="5A0-cf-46q" firstAttribute="leading" secondItem="4Do-4q-LJ0" secondAttribute="leading" id="P7k-Zx-YKl"/>
                                             <constraint firstAttribute="trailing" secondItem="5A0-cf-46q" secondAttribute="trailing" id="SEs-D0-d4i"/>
                                             <constraint firstItem="5A0-cf-46q" firstAttribute="top" secondItem="4Do-4q-LJ0" secondAttribute="top" id="hQo-KC-jYU"/>
-                                            <constraint firstItem="5UV-gJ-zpt" firstAttribute="leading" secondItem="4Do-4q-LJ0" secondAttribute="leading" constant="16" id="tXb-ep-PlK"/>
                                         </constraints>
                                     </view>
                                 </subviews>

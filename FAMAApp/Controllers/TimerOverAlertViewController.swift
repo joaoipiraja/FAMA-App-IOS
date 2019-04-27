@@ -20,7 +20,7 @@ class TimerOverAlertViewController: UIViewController {
         alertView.layer.cornerRadius = 10
         alertView.layer.masksToBounds = true
     }
-
+    
     @IBAction func confirm(_ sender: UIButton) {
         onConfirm?()
         dismiss()

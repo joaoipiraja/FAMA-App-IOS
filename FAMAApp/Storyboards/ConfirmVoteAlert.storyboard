@@ -54,7 +54,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="à Atração X - Fulano?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8e-cR-3am">
-                                                <rect key="frame" x="16" y="42" width="258" height="20.333333333333329"/>
+                                                <rect key="frame" x="16" y="36.333333333333314" width="258" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
                                         <constraints>
                                             <constraint firstItem="BdZ-Xk-rhO" firstAttribute="leading" secondItem="3ue-WP-AwX" secondAttribute="trailing" constant="4" id="BfF-le-Paq"/>
                                             <constraint firstItem="T8e-cR-3am" firstAttribute="leading" secondItem="3ue-WP-AwX" secondAttribute="leading" id="GWK-uK-Zv3"/>
-                                            <constraint firstItem="T8e-cR-3am" firstAttribute="top" secondItem="3ue-WP-AwX" secondAttribute="bottom" constant="5.6666666666666714" id="P1c-ea-RY0"/>
+                                            <constraint firstItem="T8e-cR-3am" firstAttribute="top" secondItem="3ue-WP-AwX" secondAttribute="bottom" id="P1c-ea-RY0"/>
                                             <constraint firstItem="3ue-WP-AwX" firstAttribute="leading" secondItem="d5Q-gK-bHH" secondAttribute="leading" constant="16" id="Zt8-4a-Wz5"/>
                                             <constraint firstItem="3ue-WP-AwX" firstAttribute="top" secondItem="d5Q-gK-bHH" secondAttribute="top" constant="16" id="iCA-xJ-Gwg"/>
                                             <constraint firstItem="BdZ-Xk-rhO" firstAttribute="firstBaseline" secondItem="3ue-WP-AwX" secondAttribute="firstBaseline" id="omr-X5-2pb"/>
@@ -74,14 +74,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-5V-4hT">
                                         <rect key="frame" x="0.0" y="176.66666666666663" width="144.66666666666666" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-HS-ggr">
-                                                <rect key="frame" x="16.000000000000007" y="11.333333333333371" width="112.66666666666669" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBW-8H-UcV">
                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <state key="normal" title="Confirmar">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="confirm:" destination="OJV-h7-2ec" eventType="touchUpInside" id="prU-gZ-OjX"/>
                                                 </connections>
@@ -91,9 +89,6 @@
                                         <constraints>
                                             <constraint firstItem="dBW-8H-UcV" firstAttribute="top" secondItem="q2p-5V-4hT" secondAttribute="top" id="4Rm-23-Hv5"/>
                                             <constraint firstAttribute="bottom" secondItem="dBW-8H-UcV" secondAttribute="bottom" id="7s8-M9-udz"/>
-                                            <constraint firstItem="XAh-HS-ggr" firstAttribute="leading" secondItem="q2p-5V-4hT" secondAttribute="leading" constant="16" id="H3l-ls-C3M"/>
-                                            <constraint firstAttribute="trailing" secondItem="XAh-HS-ggr" secondAttribute="trailing" constant="16" id="Q2M-bt-KcB"/>
-                                            <constraint firstItem="XAh-HS-ggr" firstAttribute="centerY" secondItem="q2p-5V-4hT" secondAttribute="centerY" id="aOu-WB-tC4"/>
                                             <constraint firstAttribute="trailing" secondItem="dBW-8H-UcV" secondAttribute="trailing" constant="-0.33333333333334281" id="dY6-J6-odN"/>
                                             <constraint firstItem="dBW-8H-UcV" firstAttribute="leading" secondItem="q2p-5V-4hT" secondAttribute="leading" id="gJa-e5-GU2"/>
                                         </constraints>
@@ -101,14 +96,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="te3-KT-NoL">
                                         <rect key="frame" x="145.66666666666663" y="176.66666666666663" width="144.33333333333337" height="44"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voltar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXE-fe-sZb">
-                                                <rect key="frame" x="15.999999999999993" y="11.333333333333371" width="112.33333333333331" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-Kx-hG6">
                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <state key="normal" title="Voltar">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="cancel:" destination="OJV-h7-2ec" eventType="touchUpInside" id="hsA-rZ-JNt"/>
                                                 </connections>
@@ -118,11 +111,8 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Wbn-Kx-hG6" secondAttribute="trailing" constant="-0.66666666666662877" id="3b1-B7-tYD"/>
                                             <constraint firstItem="Wbn-Kx-hG6" firstAttribute="leading" secondItem="te3-KT-NoL" secondAttribute="leading" id="8u6-PX-6vN"/>
-                                            <constraint firstItem="mXE-fe-sZb" firstAttribute="leading" secondItem="te3-KT-NoL" secondAttribute="leading" constant="16" id="AvL-dp-BlR"/>
-                                            <constraint firstItem="mXE-fe-sZb" firstAttribute="centerY" secondItem="te3-KT-NoL" secondAttribute="centerY" id="JGp-Fj-D13"/>
                                             <constraint firstItem="Wbn-Kx-hG6" firstAttribute="top" secondItem="te3-KT-NoL" secondAttribute="top" id="Mbl-6F-gpL"/>
                                             <constraint firstAttribute="bottom" secondItem="Wbn-Kx-hG6" secondAttribute="bottom" id="UTc-aR-XNU"/>
-                                            <constraint firstAttribute="trailing" secondItem="mXE-fe-sZb" secondAttribute="trailing" constant="16" id="k0e-a5-6Tb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -158,6 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="alertView" destination="gIC-zO-rrs" id="P34-WB-ERo"/>
+                        <outlet property="confirmButton" destination="dBW-8H-UcV" id="exB-pN-Cfh"/>
                         <outlet property="eventNameLabel" destination="T8e-cR-3am" id="hd9-bU-PjM"/>
                         <outlet property="voteLabel" destination="BdZ-Xk-rhO" id="h2b-sK-xcD"/>
                     </connections>

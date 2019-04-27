@@ -25,6 +25,7 @@ class EventsViewController: UIViewController {
     var currentArtist: Artist?
     var reloadTable = 0
     var cellHeight: CGFloat = 100
+    var tableOffset: [CGFloat] = []
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -42,6 +43,7 @@ class EventsViewController: UIViewController {
         eventsTableView.register(nib, forCellReuseIdentifier: "artistCell")
         eventsTableView.contentInsetAdjustmentBehavior = .never
         eventsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
+        eventsTableView.layer.masksToBounds = true
         
         eventsTableView.dataSource = self
         eventsTableView.delegate = self
@@ -119,7 +121,7 @@ class EventsViewController: UIViewController {
     }
     
     @IBAction func didPageChanged(_ sender: UIPageControl) {
-        UIView.animate(withDuration: 0.7, delay: 0, options: .allowUserInteraction, animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, options: [.allowUserInteraction, .showHideTransitionViews], animations: {
             self.reloadLabels(page: sender.currentPage)
             self.imagesScrollView.contentOffset.x = CGFloat(sender.currentPage) * UIScreen.main.bounds.width
         })
@@ -159,8 +161,30 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Todas as apresentações"
+        return "Todas as atrações"
     }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = UIView()
+//        headerView.backgroundColor = UIColor(rgb: 0xE48A41)
+//
+//        let label = UILabel()
+//        label.font = .systemFont(ofSize: 17, weight: .semibold)
+//        headerView.addSubview(label)
+//
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        headerView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        headerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+//
+//        label.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
+//        label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
+//        label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16).isActive = true
+//        label.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
+//        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+//
+//        return headerView
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 43
@@ -193,23 +217,62 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
         if scrollView === eventsTableView {
             let minY = UIApplication.shared.statusBarFrame.height
             let maxY = imagesScrollView.frame.height
-            var ratio = scrollView.contentOffset.y/maxY
+            let isGoingUp = scrollView.panGestureRecognizer.translation(in: scrollView).y < 0
+            
+            var offset: CGFloat = 0
+            tableOffset.forEach { offset += $0 }
+            
+            if scrollView.frame.origin.y > minY && isGoingUp {
+                animateTableRadius(with: 20)
+                offset += scrollView.contentOffset.y
+                tableOffset.append(scrollView.contentOffset.y)
+                scrollView.contentOffset.y = 0
+            }
+            if scrollView.frame.origin.y >= minY && !isGoingUp && scrollView.contentOffset.y <= 0 {
+                offset += scrollView.contentOffset.y
+                scrollView.contentOffset.y = 0
+                tableOffset.removeAll()
+                tableOffset.append(offset)
+            }
+            if scrollView.frame.origin.y == maxY && !isGoingUp && scrollView.contentOffset.y <= 0 {
+                animateTableRadius(with: 0)
+                offset = 0
+                tableOffset.removeAll()
+                return
+            }
+            
+            var ratio = offset/maxY
             if ratio > 1 { ratio = 1 }
             if ratio < 0 { ratio = 0 }
             let newY = maxY * (1 - ratio)
             if newY <= minY && eventsTableView.frame.origin.y == minY { return }
-            eventsTableView.frame.origin.y = newY > minY ? newY : minY
-            eventsTableView.frame.size.height = UIScreen.main.bounds.height - newY
-            view.layoutIfNeeded()
+            animateScroll({ self.eventsTableView.frame.origin.y = newY > minY ? newY : minY })
         }
+    }
+    
+    func animateScroll(_ animations: @escaping (() -> Void), _ completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.allowUserInteraction, .curveEaseInOut], animations: {
+            animations()
+        }) { flag in
+            self.eventsTableView.frame.size.height = UIScreen.main.bounds.height - self.eventsTableView.frame.origin.y
+            self.view.layoutIfNeeded()
+            completion?(flag)
+        }
+    }
+    
+    func animateTableRadius(with radius: CGFloat) {
+        UIView.animate(withDuration: 1.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: [.allowUserInteraction, .showHideTransitionViews], animations: {
+            self.eventsTableView.layer.cornerRadius = radius
+        })
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView === imagesScrollView {
             let page = Int(scrollView.contentOffset.x/UIScreen.main.bounds.width)
-            UIView.animate(withDuration: 0.7, delay: 0, options: .allowUserInteraction, animations: {
+            self.reloadLabels(page: page)
+            
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: {
                 self.pageControl.currentPage = page
-                self.reloadLabels(page: page)
             })
         }
     }

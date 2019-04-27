@@ -103,7 +103,7 @@
                                 <items>
                                     <barButtonItem width="357" style="plain" systemItem="fixedSpace" id="Xs8-vz-9a1"/>
                                     <barButtonItem title="Vote" image="qrcode-orange" id="LYW-sP-M5Y">
-                                        <color key="tintColor" red="0.8950536847114563" green="0.59451383352279663" blue="0.3960273265838623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.89411764705882346" green="0.54117647058823526" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <action selector="scanQrCode:" destination="gMl-xo-6YB" id="nKC-KA-trh"/>
                                         </connections>
@@ -119,11 +119,11 @@
                             <constraint firstItem="qhx-Sv-BLR" firstAttribute="trailing" secondItem="2AP-PJ-8uo" secondAttribute="trailing" id="Mcw-8S-Ng5"/>
                             <constraint firstItem="b9H-2Q-RqT" firstAttribute="trailing" secondItem="2AP-PJ-8uo" secondAttribute="trailing" id="Meg-in-YGL"/>
                             <constraint firstItem="qhx-Sv-BLR" firstAttribute="leading" secondItem="2AP-PJ-8uo" secondAttribute="leading" id="O8G-an-gI8"/>
+                            <constraint firstAttribute="bottom" secondItem="b9H-2Q-RqT" secondAttribute="bottom" id="cy3-Hb-Vvv"/>
                             <constraint firstItem="kwQ-FD-haR" firstAttribute="leading" secondItem="2AP-PJ-8uo" secondAttribute="leading" id="dYo-Bz-XVn"/>
                             <constraint firstItem="qhx-Sv-BLR" firstAttribute="bottom" secondItem="2AP-PJ-8uo" secondAttribute="bottom" id="eFV-0v-eyf"/>
                             <constraint firstItem="kwQ-FD-haR" firstAttribute="trailing" secondItem="2AP-PJ-8uo" secondAttribute="trailing" id="fqJ-Gz-0yf"/>
                             <constraint firstItem="kwQ-FD-haR" firstAttribute="top" secondItem="WPV-TE-o1G" secondAttribute="top" id="rlu-76-UxM"/>
-                            <constraint firstItem="b9H-2Q-RqT" firstAttribute="bottom" secondItem="2AP-PJ-8uo" secondAttribute="bottom" id="uUW-j5-mja"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2AP-PJ-8uo"/>
                     </view>
