@@ -18,6 +18,9 @@ class VoteViewController: UIViewController {
     @IBOutlet weak var upvoteView: UIView!
     @IBOutlet weak var downvoteView: UIView!
     
+    @IBOutlet weak var remainingTimeLabel: UILabel!
+    
+    var remainingSeconds = 2
     var artist: Artist?
     
     override func viewDidLoad() {
@@ -43,6 +46,8 @@ class VoteViewController: UIViewController {
         }
         
         loadExample()
+        startTimer()
+        
     }
     
     func loadExample() {
@@ -52,6 +57,24 @@ class VoteViewController: UIViewController {
         artistImageView.image = UIImage(named: "1")
         eventNumberLabel.text = "Atração 1"
         eventNameLabel.text = jsonResult.first ?? ""
+    }
+    
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            self.remainingSeconds -= 1
+            self.remainingTimeLabel.text = self.remainingSeconds > 10 ? "00:\(self.remainingSeconds)" : "00:0\(self.remainingSeconds)"
+            if self.remainingSeconds == 0 {
+                timer.invalidate()
+                self.timeout()
+            }
+        }
+    }
+    
+    func timeout() {
+        let storyboard = UIStoryboard(name: "TimeOverAlert", bundle: .main)
+        let alert = storyboard.instantiateViewController(withIdentifier: "timeOverAlert") as! TimerOverAlertViewController
+        alert.setOnConfirm { self.dismiss(animated: true, completion: nil) }
+        alert.present(onViewController: self)
     }
     
     @IBAction func tryToVote(_ sender: UIButton) {

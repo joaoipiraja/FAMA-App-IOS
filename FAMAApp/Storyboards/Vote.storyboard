@@ -153,7 +153,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SP-Q0-UB7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SP-Q0-UB7">
                                 <rect key="frame" x="349" y="457.66666666666669" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -189,6 +189,7 @@
                         <outlet property="downvoteView" destination="quq-Ff-8B3" id="Mfr-Uu-xPK"/>
                         <outlet property="eventNameLabel" destination="0sH-Kz-jZO" id="UeD-Da-n4i"/>
                         <outlet property="eventNumberLabel" destination="ToQ-P1-wVA" id="CeM-3f-xo5"/>
+                        <outlet property="remainingTimeLabel" destination="6SP-Q0-UB7" id="Nbm-75-TIh"/>
                         <outlet property="upvoteView" destination="rDd-PK-nR1" id="tyf-Yk-tSY"/>
                     </connections>
                 </viewController>

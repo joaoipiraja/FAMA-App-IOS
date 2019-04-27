@@ -21,6 +21,8 @@
 		3CFF4E4C22738B020002F89A /* ConfirmVoteAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF4E4B22738B020002F89A /* ConfirmVoteAlert.storyboard */; };
 		3CFF4E4E22738F380002F89A /* ConfirmVoteAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF4E4D22738F380002F89A /* ConfirmVoteAlertViewController.swift */; };
 		3CFF4E5022739CE30002F89A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF4E4F22739CE30002F89A /* Artist.swift */; };
+		3CFF4E562273D4430002F89A /* TimeOverAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF4E552273D4430002F89A /* TimeOverAlert.storyboard */; };
+		3CFF4E582273D53B0002F89A /* TimerOverAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF4E572273D53B0002F89A /* TimerOverAlertViewController.swift */; };
 		4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3695226AA0C2008B7660 /* AppDelegate.swift */; };
 		4E2E3698226AA0C2008B7660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3697226AA0C2008B7660 /* LoginViewController.swift */; };
 		4E2E369B226AA0C2008B7660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E3699226AA0C2008B7660 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		3CFF4E4B22738B020002F89A /* ConfirmVoteAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmVoteAlert.storyboard; sourceTree = "<group>"; };
 		3CFF4E4D22738F380002F89A /* ConfirmVoteAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVoteAlertViewController.swift; sourceTree = "<group>"; };
 		3CFF4E4F22739CE30002F89A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		3CFF4E552273D4430002F89A /* TimeOverAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeOverAlert.storyboard; sourceTree = "<group>"; };
+		3CFF4E572273D53B0002F89A /* TimerOverAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOverAlertViewController.swift; sourceTree = "<group>"; };
 		4E2E3692226AA0C2008B7660 /* FAMAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FAMAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2E3695226AA0C2008B7660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E2E3697226AA0C2008B7660 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 				3C68EA7A2270BBE700FEC596 /* QrCodeScannerViewController.swift */,
 				3C68EA802270BCA300FEC596 /* VoteViewController.swift */,
 				3CFF4E4D22738F380002F89A /* ConfirmVoteAlertViewController.swift */,
+				3CFF4E572273D53B0002F89A /* TimerOverAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 				3C68EA7C2270BBF400FEC596 /* QrCodeScanner.storyboard */,
 				3C68EA7E2270BC8800FEC596 /* Vote.storyboard */,
 				3CFF4E4B22738B020002F89A /* ConfirmVoteAlert.storyboard */,
+				3CFF4E552273D4430002F89A /* TimeOverAlert.storyboard */,
 				4E2E369E226AA0C3008B7660 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -109,9 +115,9 @@
 		3CFF4E5222739ED90002F89A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3C68EA842270DF5500FEC596 /* Cells */,
 				3C68EA892270F2F300FEC596 /* VoteView.swift */,
 				3C68EA8B2270F49900FEC596 /* UIColorExtension.swift */,
+				3C68EA842270DF5500FEC596 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 				3CFF4E4C22738B020002F89A /* ConfirmVoteAlert.storyboard in Resources */,
 				3C68EA772270BB6A00FEC596 /* Events.storyboard in Resources */,
 				3C68EA882270DF8700FEC596 /* ArtistTableViewCell.xib in Resources */,
+				3CFF4E562273D4430002F89A /* TimeOverAlert.storyboard in Resources */,
 				3C68EA7F2270BC8800FEC596 /* Vote.storyboard in Resources */,
 				4E2E369D226AA0C3008B7660 /* Assets.xcassets in Resources */,
 				4E2E369B226AA0C2008B7660 /* Main.storyboard in Resources */,
@@ -228,6 +235,7 @@
 				3C68EA812270BCA300FEC596 /* VoteViewController.swift in Sources */,
 				3C68EA8C2270F49900FEC596 /* UIColorExtension.swift in Sources */,
 				4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */,
+				3CFF4E582273D53B0002F89A /* TimerOverAlertViewController.swift in Sources */,
 				3CFF4E4E22738F380002F89A /* ConfirmVoteAlertViewController.swift in Sources */,
 				3C68EA872270DF8700FEC596 /* ArtistTableViewCell.swift in Sources */,
 				3C68EA792270BBDA00FEC596 /* EventsViewController.swift in Sources */,
