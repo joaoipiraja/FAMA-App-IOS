@@ -48,13 +48,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOT" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdZ-Xk-rhO">
-                                                <rect key="frame" x="203" y="15.999999999999998" width="35" height="20.333333333333329"/>
+                                                <rect key="frame" x="16" y="37" width="35" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="à Atração X - Fulano?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8e-cR-3am">
-                                                <rect key="frame" x="16" y="36.333333333333314" width="258" height="20.333333333333329"/>
+                                                <rect key="frame" x="56" y="37" width="164" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -62,13 +62,12 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="BdZ-Xk-rhO" firstAttribute="leading" secondItem="3ue-WP-AwX" secondAttribute="trailing" constant="4" id="BfF-le-Paq"/>
-                                            <constraint firstItem="T8e-cR-3am" firstAttribute="leading" secondItem="3ue-WP-AwX" secondAttribute="leading" id="GWK-uK-Zv3"/>
-                                            <constraint firstItem="T8e-cR-3am" firstAttribute="top" secondItem="3ue-WP-AwX" secondAttribute="bottom" id="P1c-ea-RY0"/>
+                                            <constraint firstItem="BdZ-Xk-rhO" firstAttribute="leading" secondItem="3ue-WP-AwX" secondAttribute="leading" id="1fF-gz-61l"/>
+                                            <constraint firstItem="BdZ-Xk-rhO" firstAttribute="top" secondItem="3ue-WP-AwX" secondAttribute="bottom" constant="0.6666666666666714" id="DBE-yl-oRz"/>
+                                            <constraint firstItem="T8e-cR-3am" firstAttribute="firstBaseline" secondItem="BdZ-Xk-rhO" secondAttribute="firstBaseline" id="HhS-V2-3oE"/>
                                             <constraint firstItem="3ue-WP-AwX" firstAttribute="leading" secondItem="d5Q-gK-bHH" secondAttribute="leading" constant="16" id="Zt8-4a-Wz5"/>
+                                            <constraint firstItem="T8e-cR-3am" firstAttribute="leading" secondItem="BdZ-Xk-rhO" secondAttribute="trailing" constant="5" id="i6o-eL-vIT"/>
                                             <constraint firstItem="3ue-WP-AwX" firstAttribute="top" secondItem="d5Q-gK-bHH" secondAttribute="top" constant="16" id="iCA-xJ-Gwg"/>
-                                            <constraint firstItem="BdZ-Xk-rhO" firstAttribute="firstBaseline" secondItem="3ue-WP-AwX" secondAttribute="firstBaseline" id="omr-X5-2pb"/>
-                                            <constraint firstAttribute="trailing" secondItem="T8e-cR-3am" secondAttribute="trailing" constant="16" id="pmH-NG-2LP"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2p-5V-4hT">
