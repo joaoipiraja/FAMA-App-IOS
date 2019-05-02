@@ -17,14 +17,45 @@
                     <view key="view" contentMode="scaleToFill" id="Ekg-4D-sUj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqw-fA-KsZ">
+                                <rect key="frame" x="334" y="36" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="G7q-1c-LE1"/>
+                                    <constraint firstAttribute="width" secondItem="Zqw-fA-KsZ" secondAttribute="height" multiplier="1:1" id="NBP-nE-djG"/>
+                                </constraints>
+                                <state key="normal" image="close-button"/>
+                                <connections>
+                                    <action selector="cancel:" destination="Tvg-Ds-mrh" eventType="touchUpInside" id="4Li-gF-r2F"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zqw-fA-KsZ" firstAttribute="top" secondItem="lnQ-Ea-Ev9" secondAttribute="top" constant="16" id="GeD-s8-mWV"/>
+                            <constraint firstItem="lnQ-Ea-Ev9" firstAttribute="trailing" secondItem="Zqw-fA-KsZ" secondAttribute="trailing" constant="16" id="JEf-Xz-h9g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lnQ-Ea-Ev9"/>
                     </view>
                     <navigationItem key="navigationItem" id="IWx-yV-DrM"/>
+                    <connections>
+                        <segue destination="7xr-U1-rsY" kind="presentation" identifier="login" id="84a-J2-rI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVL-9J-Y3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1202.8985507246377" y="-169.56521739130437"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="cRk-f6-V4F">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="7xr-U1-rsY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yq0-EJ-Q9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="-170"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="close-button" width="42" height="42"/>
+    </resources>
 </document>

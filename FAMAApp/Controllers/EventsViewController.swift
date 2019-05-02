@@ -164,27 +164,27 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
         return "Todas as atrações"
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = UIColor(rgb: 0xE48A41)
-//
-//        let label = UILabel()
-//        label.font = .systemFont(ofSize: 17, weight: .semibold)
-//        headerView.addSubview(label)
-//
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        headerView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        headerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
-//
-//        label.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
-//        label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
-//        label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16).isActive = true
-//        label.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
-//        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-//
-//        return headerView
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor(rgb: 0xE48A41)
+
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17, weight: .semibold)
+        headerView.addSubview(label)
+
+        label.translatesAutoresizingMaskIntoConstraints = false
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+
+        headerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+
+        label.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
+        label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
+        label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16).isActive = true
+        label.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
+        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 43
@@ -230,15 +230,17 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
             }
             if scrollView.frame.origin.y >= minY && !isGoingUp && scrollView.contentOffset.y <= 0 {
                 offset += scrollView.contentOffset.y
-                scrollView.contentOffset.y = 0
                 tableOffset.removeAll()
                 tableOffset.append(offset)
             }
-            if scrollView.frame.origin.y == maxY && !isGoingUp && scrollView.contentOffset.y <= 0 {
+            if scrollView.frame.origin.y >= maxY && !isGoingUp && scrollView.contentOffset.y <= 0 {
                 animateTableRadius(with: 0)
                 offset = 0
                 tableOffset.removeAll()
                 return
+            }
+            if scrollView.frame.origin.y >= minY && scrollView.frame.origin.y < maxY && !isGoingUp && scrollView.contentOffset.y <= 0 {
+                scrollView.contentOffset.y = 0
             }
             
             var ratio = offset/maxY

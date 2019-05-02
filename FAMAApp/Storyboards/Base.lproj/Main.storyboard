@@ -17,16 +17,180 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4c-9B-zHa">
+                                <rect key="frame" x="51.666666666666657" y="485" width="310.66666666666674" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ut-Kg-cha">
+                                        <rect key="frame" x="61.000000000000014" y="0.0" width="249.66666666666669" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrar com Facebook" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hr-fE-299">
+                                                <rect key="frame" x="15.999999999999986" y="20" width="217.66666666666663" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="6hr-fE-299" firstAttribute="leading" secondItem="3Ut-Kg-cha" secondAttribute="leading" constant="16" id="Dwv-9U-tvL"/>
+                                            <constraint firstAttribute="trailing" secondItem="6hr-fE-299" secondAttribute="trailing" constant="16" id="bs8-tF-WrD"/>
+                                            <constraint firstItem="6hr-fE-299" firstAttribute="centerY" secondItem="3Ut-Kg-cha" secondAttribute="centerY" id="td1-I5-Nsu"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-GB-UOd">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-icon" translatesAutoresizingMaskIntoConstraints="NO" id="4G4-uA-3Xt">
+                                                <rect key="frame" x="26.000000000000007" y="19.666666666666689" width="21" height="40.333333333333343"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="4G4-uA-3Xt" secondAttribute="bottom" id="28V-th-SBW"/>
+                                            <constraint firstAttribute="width" secondItem="hPT-GB-UOd" secondAttribute="height" id="lDL-b6-8V1"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEh-iv-kxK">
+                                        <rect key="frame" x="0.0" y="0.0" width="310.66666666666669" height="60"/>
+                                        <connections>
+                                            <action selector="facebookLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EfD-17-2uF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.22352941176470587" green="0.33725490196078434" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="3Ut-Kg-cha" firstAttribute="leading" secondItem="hPT-GB-UOd" secondAttribute="trailing" constant="1" id="Fbs-jP-WwR"/>
+                                    <constraint firstAttribute="height" constant="60" id="GWg-6o-594"/>
+                                    <constraint firstItem="hPT-GB-UOd" firstAttribute="top" secondItem="u4c-9B-zHa" secondAttribute="top" id="JtM-eC-bJF"/>
+                                    <constraint firstItem="3Ut-Kg-cha" firstAttribute="top" secondItem="u4c-9B-zHa" secondAttribute="top" id="QKC-gV-RSb"/>
+                                    <constraint firstItem="BEh-iv-kxK" firstAttribute="top" secondItem="u4c-9B-zHa" secondAttribute="top" id="Ruf-j4-uEe"/>
+                                    <constraint firstItem="hPT-GB-UOd" firstAttribute="leading" secondItem="u4c-9B-zHa" secondAttribute="leading" id="Tsq-oA-2V2"/>
+                                    <constraint firstItem="BEh-iv-kxK" firstAttribute="width" secondItem="u4c-9B-zHa" secondAttribute="width" id="TtB-92-f9E"/>
+                                    <constraint firstItem="BEh-iv-kxK" firstAttribute="leading" secondItem="u4c-9B-zHa" secondAttribute="leading" id="axs-Yy-7x2"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Ut-Kg-cha" secondAttribute="trailing" id="bgr-6E-bbF"/>
+                                    <constraint firstItem="BEh-iv-kxK" firstAttribute="height" secondItem="u4c-9B-zHa" secondAttribute="height" id="bk0-Jm-WO1"/>
+                                    <constraint firstAttribute="bottom" secondItem="hPT-GB-UOd" secondAttribute="bottom" id="e3Y-nL-tbL"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ut-Kg-cha" secondAttribute="bottom" id="ny9-EY-Jn9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBc-62-THG">
+                                <rect key="frame" x="51.666666666666657" y="561" width="310.66666666666674" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnQ-sN-HZC">
+                                        <rect key="frame" x="61.000000000000014" y="0.0" width="249.66666666666669" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrar com Google" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmb-8Q-PsQ">
+                                                <rect key="frame" x="15.999999999999986" y="20" width="217.66666666666663" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="wmb-8Q-PsQ" firstAttribute="centerY" secondItem="UnQ-sN-HZC" secondAttribute="centerY" id="E1w-yK-A32"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mu3-i3-eqI">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google-icon" translatesAutoresizingMaskIntoConstraints="NO" id="Uh8-Rr-IDW">
+                                                <rect key="frame" x="9" y="9" width="42" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Uh8-Rr-IDW" secondAttribute="height" id="dB8-Rt-y0v"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Mu3-i3-eqI" secondAttribute="height" id="DX7-KH-yE7"/>
+                                            <constraint firstItem="Uh8-Rr-IDW" firstAttribute="centerX" secondItem="Mu3-i3-eqI" secondAttribute="centerX" id="Kb4-R0-RCL"/>
+                                            <constraint firstItem="Uh8-Rr-IDW" firstAttribute="centerY" secondItem="Mu3-i3-eqI" secondAttribute="centerY" id="sdB-rT-jKb"/>
+                                            <constraint firstItem="Uh8-Rr-IDW" firstAttribute="height" secondItem="Mu3-i3-eqI" secondAttribute="height" multiplier="0.7" id="u5I-TD-is6"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CkC-Sz-qO9">
+                                        <rect key="frame" x="-0.66666666666665719" y="0.0" width="310.66666666666663" height="60"/>
+                                        <connections>
+                                            <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lSk-dW-vae"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.2627450980392157" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Mu3-i3-eqI" firstAttribute="top" secondItem="eBc-62-THG" secondAttribute="top" id="90q-Xt-aLW"/>
+                                    <constraint firstItem="CkC-Sz-qO9" firstAttribute="leading" secondItem="eBc-62-THG" secondAttribute="leading" constant="-0.66666666666665719" id="R03-2J-vhB"/>
+                                    <constraint firstItem="UnQ-sN-HZC" firstAttribute="top" secondItem="eBc-62-THG" secondAttribute="top" id="U9c-yg-8wm"/>
+                                    <constraint firstItem="Mu3-i3-eqI" firstAttribute="leading" secondItem="eBc-62-THG" secondAttribute="leading" id="YKd-xs-3ky"/>
+                                    <constraint firstItem="CkC-Sz-qO9" firstAttribute="top" secondItem="eBc-62-THG" secondAttribute="top" id="aPk-50-Ojk"/>
+                                    <constraint firstAttribute="bottom" secondItem="UnQ-sN-HZC" secondAttribute="bottom" id="ckD-Ig-Ro2"/>
+                                    <constraint firstItem="CkC-Sz-qO9" firstAttribute="width" secondItem="eBc-62-THG" secondAttribute="width" id="d67-9v-sVH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Mu3-i3-eqI" secondAttribute="bottom" id="jNB-rj-vf8"/>
+                                    <constraint firstAttribute="trailing" secondItem="UnQ-sN-HZC" secondAttribute="trailing" id="qdU-ws-53v"/>
+                                    <constraint firstItem="UnQ-sN-HZC" firstAttribute="leading" secondItem="Mu3-i3-eqI" secondAttribute="trailing" constant="1" id="qhu-XP-O9G"/>
+                                    <constraint firstItem="CkC-Sz-qO9" firstAttribute="height" secondItem="eBc-62-THG" secondAttribute="height" id="zEv-24-nc3"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vti-Vt-Uy1">
+                                <rect key="frame" x="138.66666666666666" y="637" width="136.99999999999997" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Continuar sem login">
+                                    <color key="titleColor" red="0.94901960784313721" green="0.57647058823529407" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="continueWithoutLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="82p-0g-Loo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mg-mR-fB1">
+                                <rect key="frame" x="356" y="36" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Mg-mR-fB1" secondAttribute="height" multiplier="1:1" id="7fk-VV-HM4"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="64" id="VE5-cn-SS4"/>
+                                </constraints>
+                                <state key="normal" image="close-button"/>
+                                <connections>
+                                    <action selector="close:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hX1-W7-0Sp"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fama-logo" translatesAutoresizingMaskIntoConstraints="NO" id="B2j-H4-fmK">
+                                <rect key="frame" x="0.0" y="94" width="414" height="327"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="B2j-H4-fmK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="40A-hK-2i9"/>
+                            <constraint firstItem="eBc-62-THG" firstAttribute="width" secondItem="u4c-9B-zHa" secondAttribute="width" id="4lK-x8-8jA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Mg-mR-fB1" secondAttribute="trailing" constant="16" id="5TD-Zk-lCV"/>
+                            <constraint firstItem="4G4-uA-3Xt" firstAttribute="trailing" secondItem="Uh8-Rr-IDW" secondAttribute="trailing" constant="-4" id="984-4O-zJI"/>
+                            <constraint firstItem="wmb-8Q-PsQ" firstAttribute="leading" secondItem="6hr-fE-299" secondAttribute="leading" id="A6B-Nl-3Ky"/>
+                            <constraint firstItem="eBc-62-THG" firstAttribute="height" secondItem="u4c-9B-zHa" secondAttribute="height" id="BxK-6i-vA8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vti-Vt-Uy1" secondAttribute="bottom" constant="48" id="Jae-nu-1RO"/>
+                            <constraint firstItem="vti-Vt-Uy1" firstAttribute="top" secondItem="eBc-62-THG" secondAttribute="bottom" constant="16" id="K3x-AB-JNI"/>
+                            <constraint firstItem="u4c-9B-zHa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="Lqp-3H-a6y"/>
+                            <constraint firstItem="eBc-62-THG" firstAttribute="top" secondItem="u4c-9B-zHa" secondAttribute="bottom" constant="16" id="NNK-jI-hUb"/>
+                            <constraint firstItem="eBc-62-THG" firstAttribute="leading" secondItem="u4c-9B-zHa" secondAttribute="leading" id="Qi0-Ij-ajv"/>
+                            <constraint firstItem="B2j-H4-fmK" firstAttribute="top" relation="lessThanOrEqual" secondItem="1Mg-mR-fB1" secondAttribute="bottom" constant="16" id="TJx-Wa-xIg"/>
+                            <constraint firstItem="B2j-H4-fmK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="U5S-4l-0Bc"/>
+                            <constraint firstItem="vti-Vt-Uy1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mCT-4q-uOM"/>
+                            <constraint firstItem="1Mg-mR-fB1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="mqG-Aj-xTx"/>
+                            <constraint firstItem="u4c-9B-zHa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="osi-IV-qFk"/>
+                            <constraint firstItem="BEh-iv-kxK" firstAttribute="top" relation="lessThanOrEqual" secondItem="B2j-H4-fmK" secondAttribute="bottom" constant="64" id="ouv-HL-tio"/>
+                            <constraint firstItem="wmb-8Q-PsQ" firstAttribute="trailing" secondItem="6hr-fE-299" secondAttribute="trailing" id="zCG-dJ-IcG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="1Mg-mR-fB1" id="5db-js-cVu"/>
+                        <outlet property="continueWithoutLoginButton" destination="vti-Vt-Uy1" id="aYD-dQ-4cp"/>
+                        <outlet property="famaLogoImageView" destination="B2j-H4-fmK" id="Wci-xl-TOu"/>
                         <segue destination="ETl-ac-zWu" kind="presentation" identifier="events" id="vf0-K5-pxc"/>
                         <segue destination="5Oc-Fa-rKU" kind="presentation" identifier="qrCode" id="6ge-YW-amD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="211.59420289855075" y="90.489130434782609"/>
         </scene>
         <!--Events-->
         <scene sceneID="dl7-Vt-aKE">
@@ -34,7 +198,7 @@
                 <viewControllerPlaceholder storyboardName="Events" id="ETl-ac-zWu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgb-SO-YSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="315"/>
+            <point key="canvasLocation" x="1091" y="-34"/>
         </scene>
         <!--QrCodeScanner-->
         <scene sceneID="yg1-1f-wcf">
@@ -42,7 +206,13 @@
                 <viewControllerPlaceholder storyboardName="QrCodeScanner" id="5Oc-Fa-rKU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrF-1i-EzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797" y="470"/>
+            <point key="canvasLocation" x="1130" y="121"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close-button" width="42" height="42"/>
+        <image name="facebook-icon" width="21" height="40.333332061767578"/>
+        <image name="fama-logo" width="375.66665649414062" height="327"/>
+        <image name="google-icon" width="36" height="36"/>
+    </resources>
 </document>

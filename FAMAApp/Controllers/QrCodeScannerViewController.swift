@@ -17,12 +17,41 @@ protocol QrCodeScannerDelegate {
     func didScan(with: QrCodeScannerStates)
 }
 
-class QrCodeScannerViewController: UIViewController {
+class QrCodeScannerViewController: UIViewController, LoginDelegate {
 
     var delegate: QrCodeScannerDelegate?
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? LoginViewController
+        destination?.shouldContinueWithoutLogin = false
+        destination?.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
+//        if !user.isLogged {
+//            startScanning()
+//        } else {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.performSegue(withIdentifier: "login", sender: nil)
+        }
+//        }
+    }
+    
+    @IBAction func cancel(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func didLogin() {
+        startScanning()
+    }
+    
+    func didCancel() {
+        
+    }
+    
+    func startScanning() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.dismiss(animated: true, completion: nil)
             self.delegate?.didScan(with: .success)
