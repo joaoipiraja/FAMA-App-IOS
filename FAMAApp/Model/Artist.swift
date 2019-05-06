@@ -11,6 +11,7 @@ import Foundation
 struct Artist: Codable {
     var name: String
     var number: Int
+    var isPresenting: Bool
     var eventName: String {
         return "Atração \(number) - \(name)"
     }

@@ -20,7 +20,7 @@ class VoteViewController: UIViewController {
     
     @IBOutlet weak var remainingTimeLabel: UILabel!
     
-    var remainingSeconds = 30
+    lazy var remainingSeconds = 30
     var timer: Timer?
     var artist: Artist?
     
@@ -59,18 +59,27 @@ class VoteViewController: UIViewController {
     
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            if self.remainingSeconds == 0 { self.timeout() }
             self.remainingSeconds -= 1
             self.remainingTimeLabel.text = self.remainingSeconds >= 10 ? "00:\(self.remainingSeconds)" : "00:0\(self.remainingSeconds)"
-            if self.remainingSeconds == 0 {
-                timer.invalidate()
-                self.timeout()
-            }
         }
     }
     
     func timeout() {
-        let storyboard = UIStoryboard(name: "TimeOverAlert", bundle: .main)
-        let alert = storyboard.instantiateViewController(withIdentifier: "timeOverAlert") as! TimerOverAlertViewController
+        timer?.invalidate()
+        presentAlert(withMessage: "O tempo para a votação deste candidato acabou")
+    }
+    
+    func backgroundError() {
+        timer?.invalidate()
+        presentAlert(withMessage: "Ocorreu algum erro. Tente votar novamente")
+    }
+    
+    func presentAlert(withMessage message: String) {
+        let storyboard = UIStoryboard(name: "FamaAlert", bundle: .main)
+        let alert = storyboard.instantiateViewController(withIdentifier: "famaAlert") as! FamaAlertViewController
+        alert.set(title: "Ops...")
+        alert.set(message: message)
         alert.setOnConfirm { self.dismiss(animated: true, completion: nil) }
         alert.present(onViewController: self)
     }
@@ -90,13 +99,34 @@ class VoteViewController: UIViewController {
         let alert = storyboard.instantiateViewController(withIdentifier: "confirmVoteAlert") as! ConfirmVoteAlertViewController
         alert.populate(withVote: vote, withEvent: artist.name)
         alert.setOnConfirm {
-            self.confirmVote(with: vote)
+            self.uploadVote(with: vote)
             self.timer?.invalidate()
         }
         alert.present(onViewController: self)
     }
     
     func confirmVote(with vote: Vote) {
+        DispatchQueue.main.async {
+            self.persistVote()
+            self.runAnimation(forVote: vote)
+        }
+    }
+    
+    private func uploadVote(with vote: Vote) {
+        self.confirmVote(with: vote)
+        // MARK: Upload para o Firebase
+            // Se der certo chamar self.confirmVote(vote: vote)
+            // Senão, chamar presentAlert(withMessage: "Algo deu errado. Verifique a sua conexão com a internet e tente novamente")
+    }
+    
+    private func persistVote() {
+        let defaults = UserDefaults.standard
+        var votes = (defaults.array(forKey: "votes") as? [Int]) ?? [Int]()
+        votes.append(artist!.number)
+        defaults.setValue(votes, forKey: "votes")
+    }
+    
+    private func runAnimation(forVote vote: Vote) {
         let voteView = VoteView(vote: vote)
         voteView.frame.size.width = UIScreen.main.bounds.width
         voteView.center = view.center
@@ -146,9 +176,8 @@ class VoteViewController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-             self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
-        
     }
 
 }

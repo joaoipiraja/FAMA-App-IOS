@@ -20,24 +20,15 @@ class EventsViewController: UIViewController {
     var currentEventImageView: UIImageView!
     var nextEventImageView: UIImageView!
     
-    var artists = [Artist]()
-    
+    lazy var artists = [Artist]()
     var currentArtist: Artist?
-    var reloadTable = 0
-    var cellHeight: CGFloat = 100
-    var tableOffset: [CGFloat] = []
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        cellHeight = (UIScreen.main.bounds.height - imagesScrollView.frame.height)/2.5
-        if reloadTable < 2 {
-            eventsTableView.reloadData()
-            reloadTable += 1
-        }
-    }
+    lazy var cellHeight: CGFloat = 100
+    lazy var tableOffset: [CGFloat] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sleep(1)
         
         let nib = UINib(nibName: "ArtistTableViewCell", bundle: .main)
         eventsTableView.register(nib, forCellReuseIdentifier: "artistCell")
@@ -73,8 +64,12 @@ class EventsViewController: UIViewController {
         nextEventImageView.frame.origin.x = imageFrame.width
         imagesScrollView.addSubview(currentEventImageView)
         imagesScrollView.addSubview(nextEventImageView)
+        cellHeight = (UIScreen.main.bounds.height * (1 - 0.6))/2.5
         
         loadJson()
+
+        // MARK: Consulta ao Firebase - pegar o index de quem está apresentando
+        loadCurrentArtist(index: 0)
     }
     
     func loadJson() {
@@ -82,13 +77,24 @@ class EventsViewController: UIViewController {
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: []) else { return }
         guard let artists = try? JSONDecoder().decode([Artist].self, from: data) else { return }
         self.artists = artists
-        self.currentArtist = artists[4]
         self.eventsTableView.reloadData()
-        self.reloadImages()
-        self.reloadLabels(page: 0)
+        self.loadHeader(page: pageControl.currentPage)
     }
     
-    func reloadImages() {
+    func loadCurrentArtist(index: Int) {
+        if index >= 0 && index < artists.count {
+            currentArtist = artists[index]
+            currentArtist?.isPresenting = true
+            loadHeader(page: pageControl.currentPage)
+        }
+    }
+    
+    func loadHeader(page: Int) {
+        loadImages()
+        loadLabels(page: page)
+    }
+    
+    func loadImages() {
         if let artist = currentArtist {
             currentEventImageView.image = UIImage(named: "\(artist.number)")
             nextEventImageView.image = UIImage(named: "\(artist.number + 1)")
@@ -97,7 +103,7 @@ class EventsViewController: UIViewController {
         }
     }
     
-    func reloadLabels(page: Int) {
+    func loadLabels(page: Int) {
         if page < 0 { return }
         if page == 0 {
             statusLabel.text = "Apresentando agora"
@@ -121,39 +127,62 @@ class EventsViewController: UIViewController {
     }
     
     @IBAction func didPageChanged(_ sender: UIPageControl) {
-        UIView.animate(withDuration: 0.7, delay: 0, options: [.allowUserInteraction, .showHideTransitionViews], animations: {
-            self.reloadLabels(page: sender.currentPage)
+        self.loadLabels(page: sender.currentPage)
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.imagesScrollView.contentOffset.x = CGFloat(sender.currentPage) * UIScreen.main.bounds.width
         })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "scanQrCode" {
-            let destination = segue.destination as? QrCodeScannerViewController
-            destination?.delegate = self
-        }
+//        if segue.identifier == "scanQrCode" {
+//            let destination = segue.destination as? QrCodeScannerViewController
+//            destination?.delegate = self
+//        }
         if segue.identifier == "vote" {
             let destination = segue.destination as? VoteViewController
-            destination?.artist = currentArtist
+            destination?.artist = sender as? Artist
         }
     }
     
-    @IBAction func scanQrCode(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "scanQrCode", sender: currentArtist)
+    @IBAction func vote(_ sender: UIBarButtonItem) {
+        let willVote: (canVote: Bool, reason: String?) = canVote()
+        if willVote.canVote {
+            performSegue(withIdentifier: "vote", sender: currentArtist)
+        } else {
+            let storyboard = UIStoryboard(name: "FamaAlert", bundle: .main)
+            let alert = storyboard.instantiateViewController(withIdentifier: "famaAlert") as! FamaAlertViewController
+            alert.set(title: "Ops...")
+            alert.set(message: willVote.reason ?? "")
+            alert.present(onViewController: self)
+        }
+    }
+    
+    func canVote() -> (canVote: Bool, reason: String?) {
+        if let artist = currentArtist {
+            let defaults = UserDefaults.standard
+            let votes = (defaults.array(forKey: "votes") as? [Int]) ?? [Int]()
+            if !votes.contains(artist.number) {
+                return (true, nil)
+            } else {
+                return (false, "Você já votou nesse candidato")
+            }
+        } else {
+            return (false, "A votação não está disponível no momento")
+        }
     }
     
 }
 
-extension EventsViewController: QrCodeScannerDelegate {
-    func didScan(with state: QrCodeScannerStates) {
-        switch state {
-        case .success:
-            performSegue(withIdentifier: "vote", sender: currentArtist)
-        case .failure:
-            break
-        }
-    }
-}
+//extension EventsViewController: QrCodeScannerDelegate {
+//    func didScan(with state: QrCodeScannerStates) {
+//        switch state {
+//        case .success:
+//            performSegue(withIdentifier: "vote", sender: currentArtist)
+//        case .failure:
+//            break
+//        }
+//    }
+//}
 
 extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -164,27 +193,27 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
         return "Todas as atrações"
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor(rgb: 0xE48A41)
-
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 17, weight: .semibold)
-        headerView.addSubview(label)
-
-        label.translatesAutoresizingMaskIntoConstraints = false
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-
-        headerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
-
-        label.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
-        label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
-        label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16).isActive = true
-        label.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
-        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = UIView()
+//        headerView.backgroundColor = UIColor(rgb: 0xE48A41)
+//
+//        let label = UILabel()
+//        label.font = .systemFont(ofSize: 17, weight: .semibold)
+//        headerView.addSubview(label)
+//
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        headerView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        headerView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+//
+//        label.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
+//        label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16).isActive = true
+//        label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16).isActive = true
+//        label.heightAnchor.constraint(equalTo: headerView.heightAnchor, multiplier: 0.5).isActive = true
+//        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+//
+//        return headerView
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 43
@@ -271,7 +300,7 @@ extension EventsViewController: UIScrollViewDelegate, UITableViewDataSource, UIT
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView === imagesScrollView {
             let page = Int(scrollView.contentOffset.x/UIScreen.main.bounds.width)
-            self.reloadLabels(page: page)
+            self.loadLabels(page: page)
             
             UIView.animate(withDuration: 0.3, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: {
                 self.pageControl.currentPage = page

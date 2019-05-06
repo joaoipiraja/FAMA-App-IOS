@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C00342A2280661C006EBC2F /* FamaAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0034292280661C006EBC2F /* FamaAlert.storyboard */; };
+		3C00342C228069A0006EBC2F /* FamaAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00342B228069A0006EBC2F /* FamaAlertViewController.swift */; };
+		3C00343022807791006EBC2F /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00342F22807791006EBC2F /* UIApplicationExtension.swift */; };
 		3C68EA772270BB6A00FEC596 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA762270BB6A00FEC596 /* Events.storyboard */; };
 		3C68EA792270BBDA00FEC596 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA782270BBDA00FEC596 /* EventsViewController.swift */; };
-		3C68EA7B2270BBE700FEC596 /* QrCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA7A2270BBE700FEC596 /* QrCodeScannerViewController.swift */; };
-		3C68EA7D2270BBF400FEC596 /* QrCodeScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA7C2270BBF400FEC596 /* QrCodeScanner.storyboard */; };
 		3C68EA7F2270BC8800FEC596 /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA7E2270BC8800FEC596 /* Vote.storyboard */; };
 		3C68EA812270BCA300FEC596 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA802270BCA300FEC596 /* VoteViewController.swift */; };
 		3C68EA832270C7DB00FEC596 /* Artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA822270C7DB00FEC596 /* Artists.json */; };
@@ -21,20 +22,17 @@
 		3CFF4E4C22738B020002F89A /* ConfirmVoteAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF4E4B22738B020002F89A /* ConfirmVoteAlert.storyboard */; };
 		3CFF4E4E22738F380002F89A /* ConfirmVoteAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF4E4D22738F380002F89A /* ConfirmVoteAlertViewController.swift */; };
 		3CFF4E5022739CE30002F89A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF4E4F22739CE30002F89A /* Artist.swift */; };
-		3CFF4E562273D4430002F89A /* TimeOverAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CFF4E552273D4430002F89A /* TimeOverAlert.storyboard */; };
-		3CFF4E582273D53B0002F89A /* TimerOverAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFF4E572273D53B0002F89A /* TimerOverAlertViewController.swift */; };
 		4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3695226AA0C2008B7660 /* AppDelegate.swift */; };
-		4E2E3698226AA0C2008B7660 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3697226AA0C2008B7660 /* LoginViewController.swift */; };
-		4E2E369B226AA0C2008B7660 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E3699226AA0C2008B7660 /* Main.storyboard */; };
 		4E2E369D226AA0C3008B7660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E369C226AA0C3008B7660 /* Assets.xcassets */; };
 		4E2E36A0226AA0C3008B7660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E369E226AA0C3008B7660 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C0034292280661C006EBC2F /* FamaAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FamaAlert.storyboard; sourceTree = "<group>"; };
+		3C00342B228069A0006EBC2F /* FamaAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamaAlertViewController.swift; sourceTree = "<group>"; };
+		3C00342F22807791006EBC2F /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		3C68EA762270BB6A00FEC596 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		3C68EA782270BBDA00FEC596 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		3C68EA7A2270BBE700FEC596 /* QrCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeScannerViewController.swift; sourceTree = "<group>"; };
-		3C68EA7C2270BBF400FEC596 /* QrCodeScanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QrCodeScanner.storyboard; sourceTree = "<group>"; };
 		3C68EA7E2270BC8800FEC596 /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
 		3C68EA802270BCA300FEC596 /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
 		3C68EA822270C7DB00FEC596 /* Artists.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Artists.json; sourceTree = "<group>"; };
@@ -45,12 +43,8 @@
 		3CFF4E4B22738B020002F89A /* ConfirmVoteAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmVoteAlert.storyboard; sourceTree = "<group>"; };
 		3CFF4E4D22738F380002F89A /* ConfirmVoteAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVoteAlertViewController.swift; sourceTree = "<group>"; };
 		3CFF4E4F22739CE30002F89A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		3CFF4E552273D4430002F89A /* TimeOverAlert.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeOverAlert.storyboard; sourceTree = "<group>"; };
-		3CFF4E572273D53B0002F89A /* TimerOverAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerOverAlertViewController.swift; sourceTree = "<group>"; };
 		4E2E3692226AA0C2008B7660 /* FAMAApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FAMAApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2E3695226AA0C2008B7660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E2E3697226AA0C2008B7660 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4E2E369A226AA0C2008B7660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E2E369C226AA0C3008B7660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2E369F226AA0C3008B7660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2E36A1226AA0C3008B7660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,12 +64,10 @@
 		3C68EA742270BB0E00FEC596 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4E2E3697226AA0C2008B7660 /* LoginViewController.swift */,
 				3C68EA782270BBDA00FEC596 /* EventsViewController.swift */,
-				3C68EA7A2270BBE700FEC596 /* QrCodeScannerViewController.swift */,
 				3C68EA802270BCA300FEC596 /* VoteViewController.swift */,
 				3CFF4E4D22738F380002F89A /* ConfirmVoteAlertViewController.swift */,
-				3CFF4E572273D53B0002F89A /* TimerOverAlertViewController.swift */,
+				3C00342B228069A0006EBC2F /* FamaAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -83,12 +75,10 @@
 		3C68EA752270BB1900FEC596 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				4E2E3699226AA0C2008B7660 /* Main.storyboard */,
 				3C68EA762270BB6A00FEC596 /* Events.storyboard */,
-				3C68EA7C2270BBF400FEC596 /* QrCodeScanner.storyboard */,
 				3C68EA7E2270BC8800FEC596 /* Vote.storyboard */,
 				3CFF4E4B22738B020002F89A /* ConfirmVoteAlert.storyboard */,
-				3CFF4E552273D4430002F89A /* TimeOverAlert.storyboard */,
+				3C0034292280661C006EBC2F /* FamaAlert.storyboard */,
 				4E2E369E226AA0C3008B7660 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -143,6 +133,7 @@
 			children = (
 				4E2E36A1226AA0C3008B7660 /* Info.plist */,
 				4E2E3695226AA0C2008B7660 /* AppDelegate.swift */,
+				3C00342F22807791006EBC2F /* UIApplicationExtension.swift */,
 				4E2E369C226AA0C3008B7660 /* Assets.xcassets */,
 				3CFF4E5122739ECB0002F89A /* Model */,
 				3CFF4E5222739ED90002F89A /* View */,
@@ -184,6 +175,11 @@
 				TargetAttributes = {
 					4E2E3691226AA0C2008B7660 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -210,16 +206,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C00342A2280661C006EBC2F /* FamaAlert.storyboard in Resources */,
 				4E2E36A0226AA0C3008B7660 /* LaunchScreen.storyboard in Resources */,
 				3CFF4E4C22738B020002F89A /* ConfirmVoteAlert.storyboard in Resources */,
 				3C68EA772270BB6A00FEC596 /* Events.storyboard in Resources */,
 				3C68EA882270DF8700FEC596 /* ArtistTableViewCell.xib in Resources */,
-				3CFF4E562273D4430002F89A /* TimeOverAlert.storyboard in Resources */,
 				3C68EA7F2270BC8800FEC596 /* Vote.storyboard in Resources */,
 				4E2E369D226AA0C3008B7660 /* Assets.xcassets in Resources */,
-				4E2E369B226AA0C2008B7660 /* Main.storyboard in Resources */,
 				3C68EA832270C7DB00FEC596 /* Artists.json in Resources */,
-				3C68EA7D2270BBF400FEC596 /* QrCodeScanner.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,31 +224,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2E3698226AA0C2008B7660 /* LoginViewController.swift in Sources */,
-				3C68EA7B2270BBE700FEC596 /* QrCodeScannerViewController.swift in Sources */,
 				3C68EA812270BCA300FEC596 /* VoteViewController.swift in Sources */,
 				3C68EA8C2270F49900FEC596 /* UIColorExtension.swift in Sources */,
 				4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */,
-				3CFF4E582273D53B0002F89A /* TimerOverAlertViewController.swift in Sources */,
 				3CFF4E4E22738F380002F89A /* ConfirmVoteAlertViewController.swift in Sources */,
 				3C68EA872270DF8700FEC596 /* ArtistTableViewCell.swift in Sources */,
+				3C00343022807791006EBC2F /* UIApplicationExtension.swift in Sources */,
 				3C68EA792270BBDA00FEC596 /* EventsViewController.swift in Sources */,
 				3CFF4E5022739CE30002F89A /* Artist.swift in Sources */,
 				3C68EA8A2270F2F300FEC596 /* VoteView.swift in Sources */,
+				3C00342C228069A0006EBC2F /* FamaAlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4E2E3699226AA0C2008B7660 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E2E369A226AA0C2008B7660 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4E2E369E226AA0C3008B7660 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

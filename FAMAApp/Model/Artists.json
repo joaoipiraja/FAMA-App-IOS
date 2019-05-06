@@ -1,13 +1,13 @@
 [
-    {"name": "Banda Update", "number": 1},
-    {"name": "Dupla Double", "number": 2},
-    {"name": "Dupla Nota Fora", "number": 3},
-    {"name": "G Eu A", "number": 4},
-    {"name": "Moisés Mariano", "number": 5},
-    {"name": "Horizonte de Eventos", "number": 6},
-    {"name": "Hakai", "number": 7},
-    {"name": "To1nha", "number": 8},
-    {"name": "Sinergia", "number": 9},
-    {"name": "Kauans Show", "number": 10},
-    {"name": "Gil de Abreu", "number": 11}
+    {"name": "Banda Update", "number": 1, "isPresenting": false},
+    {"name": "Dupla Double", "number": 2, "isPresenting": false},
+    {"name": "Dupla Nota Fora", "number": 3, "isPresenting": false},
+    {"name": "G Eu A", "number": 4, "isPresenting": false},
+    {"name": "Moisés Mariano", "number": 5, "isPresenting": false},
+    {"name": "Horizonte de Eventos", "number": 6, "isPresenting": false},
+    {"name": "Hakai", "number": 7, "isPresenting": false},
+    {"name": "To1nha", "number": 8, "isPresenting": false},
+    {"name": "Sinergia", "number": 9, "isPresenting": false},
+    {"name": "Kauans Show", "number": 10, "isPresenting": false},
+    {"name": "Gil de Abreu", "number": 11, "isPresenting": false}
 ]

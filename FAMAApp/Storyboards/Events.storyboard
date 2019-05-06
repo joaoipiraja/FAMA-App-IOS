@@ -102,10 +102,10 @@
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <items>
                                     <barButtonItem width="357" style="plain" systemItem="fixedSpace" id="Xs8-vz-9a1"/>
-                                    <barButtonItem title="Vote" image="qrcode-orange" id="LYW-sP-M5Y">
+                                    <barButtonItem title="Votar" id="LYW-sP-M5Y">
                                         <color key="tintColor" red="0.89411764705882346" green="0.54117647058823526" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
-                                            <action selector="scanQrCode:" destination="gMl-xo-6YB" id="nKC-KA-trh"/>
+                                            <action selector="vote:" destination="gMl-xo-6YB" id="nKC-KA-trh"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -134,7 +134,6 @@
                         <outlet property="imagesScrollView" destination="aTC-BZ-69V" id="sca-Wd-diN"/>
                         <outlet property="pageControl" destination="YaG-AX-cRo" id="Oz7-Jf-b9B"/>
                         <outlet property="statusLabel" destination="VQM-om-0jP" id="A7v-hU-jTR"/>
-                        <segue destination="aFZ-y9-mvS" kind="presentation" identifier="scanQrCode" id="Myu-2B-KxJ"/>
                         <segue destination="W9n-nq-Xc5" kind="presentation" identifier="vote" id="GR6-gM-XIV"/>
                     </connections>
                 </viewController>
@@ -142,24 +141,13 @@
             </objects>
             <point key="canvasLocation" x="-414.49275362318843" y="-193.20652173913044"/>
         </scene>
-        <!--QrCodeScanner-->
-        <scene sceneID="BNu-rr-HMm">
-            <objects>
-                <viewControllerPlaceholder storyboardName="QrCodeScanner" id="aFZ-y9-mvS" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7o-oi-nGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="464" y="-242"/>
-        </scene>
         <!--Vote-->
         <scene sceneID="QH5-f3-FSi">
             <objects>
                 <viewControllerPlaceholder storyboardName="Vote" id="W9n-nq-Xc5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1q7-kh-Q2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="-141"/>
+            <point key="canvasLocation" x="391" y="-193"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="qrcode-orange" width="32" height="32"/>
-    </resources>
 </document>

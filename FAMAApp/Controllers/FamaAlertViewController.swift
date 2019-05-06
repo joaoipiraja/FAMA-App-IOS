@@ -8,17 +8,34 @@
 
 import UIKit
 
-class TimerOverAlertViewController: UIViewController {
+class FamaAlertViewController: UIViewController {
 
     @IBOutlet weak var alertView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    private var alertTitle: String?
+    private var message: String?
     private var onConfirm: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         alertView.alpha = 0
         view.alpha = 0
         alertView.layer.cornerRadius = 10
         alertView.layer.masksToBounds = true
+        
+        titleLabel.text = alertTitle
+        messageLabel.text = message
+    }
+    
+    func set(title: String) {
+        self.alertTitle = title
+    }
+    
+    func set(message: String) {
+        self.message = message
     }
     
     @IBAction func confirm(_ sender: UIButton) {
