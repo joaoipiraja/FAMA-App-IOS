@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventsViewController: UIViewController {
 
@@ -69,7 +70,18 @@ class EventsViewController: UIViewController {
         loadJson()
 
         // MARK: Consulta ao Firebase - pegar o index de quem está apresentando
-        loadCurrentArtist(index: 0)
+        
+        Firestore.firestore().collection("atual").document("kRiOFBAAnHyMPy9bibvO")
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                print("Dados",document.data()?["index"])
+                self.loadCurrentArtist(index: ((document["index"] as? Int ?? 1) - 1) < 11 ? ((document["index"] as? Int ?? 1) - 1) : 10)
+        }
+        
     }
     
     func loadJson() {

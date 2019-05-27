@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 enum Vote: Int {
     case up = 0x2ECC71
@@ -21,7 +22,7 @@ class VoteView: UIView {
     var imageView: UIImageView!
     var label: UILabel!
     
-    init(vote: Vote) {
+    init(vote: Vote, artist: Artist) {
         super.init(frame: .zero)
         backgroundColor = UIColor(rgb: vote.rawValue)
         
@@ -39,6 +40,17 @@ class VoteView: UIView {
         switch vote {
         case .up:
             imageView.image = UIImage(named: "upvote-black")
+            let db = Firestore.firestore()
+            
+            let frankDocRef = db.collection("contagem").document("atracoes")
+            frankDocRef.collection(artist.name ?? "").document("voto").updateData(["total" : FieldValue.increment(Int64(1))]){ err in
+                if let err = err {
+                    frankDocRef.collection(artist.name ?? "").document("voto").setData(["total" : 1])
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+            
         case .down:
             imageView.image = UIImage(named: "downvote-black")
         }

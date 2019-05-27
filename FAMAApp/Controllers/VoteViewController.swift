@@ -52,6 +52,7 @@ class VoteViewController: UIViewController {
     }
     
     func loadArtist() {
+        
         artistImageView.image = UIImage(named: "\(artist?.number ?? 0)")
         eventNumberLabel.text = "Atração \(artist?.number ?? 0)"
         eventNameLabel.text = artist?.name
@@ -127,7 +128,7 @@ class VoteViewController: UIViewController {
     }
     
     private func runAnimation(forVote vote: Vote) {
-        let voteView = VoteView(vote: vote)
+        let voteView = VoteView(vote: vote, artist: artist!)
         voteView.frame.size.width = UIScreen.main.bounds.width
         voteView.center = view.center
         view.addSubview(voteView)
