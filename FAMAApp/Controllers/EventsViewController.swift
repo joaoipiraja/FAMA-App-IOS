@@ -74,7 +74,7 @@ class EventsViewController: UIViewController {
         Firestore.firestore().collection("atual").document("kRiOFBAAnHyMPy9bibvO")
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
+                  print("Error fetching document: \(error!)")
                     return
                 }
                 
