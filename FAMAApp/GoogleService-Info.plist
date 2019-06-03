@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>36234149361-ttvudt3lda9p7ng72591jardnvjiki0v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.36234149361-ttvudt3lda9p7ng72591jardnvjiki0v</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>36234149361-1s08jt1r2a4ci4nlbgjlp402djr0fjpb.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAih_dWpnJIAdmbQvmIldCsY2-ASuqYpcs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>36234149361</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.fama.FAMAApp</string>
+	<key>PROJECT_ID</key>
+	<string>fama-2019-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fama-2019-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:36234149361:ios:65078772e10fd390</string>
+	<key>DATABASE_URL</key>
+	<string>https://fama-2019-app.firebaseio.com</string>
+</dict>
+</plist>

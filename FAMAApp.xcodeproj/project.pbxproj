@@ -10,6 +10,8 @@
 		3C00342A2280661C006EBC2F /* FamaAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C0034292280661C006EBC2F /* FamaAlert.storyboard */; };
 		3C00342C228069A0006EBC2F /* FamaAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00342B228069A0006EBC2F /* FamaAlertViewController.swift */; };
 		3C00343022807791006EBC2F /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00342F22807791006EBC2F /* UIApplicationExtension.swift */; };
+		3C4765F8229C72660048AAAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C4765F7229C72660048AAAA /* GoogleService-Info.plist */; };
+		3C4765F9229EA7900048AAAA /* Pods_FAMAApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7358E80067F506C5B6FDE /* Pods_FAMAApp.framework */; };
 		3C68EA772270BB6A00FEC596 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA762270BB6A00FEC596 /* Events.storyboard */; };
 		3C68EA792270BBDA00FEC596 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C68EA782270BBDA00FEC596 /* EventsViewController.swift */; };
 		3C68EA7F2270BC8800FEC596 /* Vote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C68EA7E2270BC8800FEC596 /* Vote.storyboard */; };
@@ -25,15 +27,14 @@
 		4E2E3696226AA0C2008B7660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2E3695226AA0C2008B7660 /* AppDelegate.swift */; };
 		4E2E369D226AA0C3008B7660 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E369C226AA0C3008B7660 /* Assets.xcassets */; };
 		4E2E36A0226AA0C3008B7660 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2E369E226AA0C3008B7660 /* LaunchScreen.storyboard */; };
-		4EEEFC1E228ED17100421CB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EEEFC1D228ED17100421CB0 /* GoogleService-Info.plist */; };
-		F7A4BBB58D19B12C4B570B7D /* Pods_FAMAApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001D5826A30E6C6DA05B49E0 /* Pods_FAMAApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		001D5826A30E6C6DA05B49E0 /* Pods_FAMAApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FAMAApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21CC67FD1BF2BAAB752AFF76 /* Pods-FAMAApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAMAApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FAMAApp/Pods-FAMAApp.release.xcconfig"; sourceTree = "<group>"; };
 		3C0034292280661C006EBC2F /* FamaAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FamaAlert.storyboard; sourceTree = "<group>"; };
 		3C00342B228069A0006EBC2F /* FamaAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamaAlertViewController.swift; sourceTree = "<group>"; };
 		3C00342F22807791006EBC2F /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		3C4765F7229C72660048AAAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C68EA762270BB6A00FEC596 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		3C68EA782270BBDA00FEC596 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		3C68EA7E2270BC8800FEC596 /* Vote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vote.storyboard; sourceTree = "<group>"; };
@@ -51,9 +52,8 @@
 		4E2E369C226AA0C3008B7660 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2E369F226AA0C3008B7660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2E36A1226AA0C3008B7660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EEEFC1D228ED17100421CB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Documents/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5034016151688BD89FAE5B94 /* Pods-FAMAApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAMAApp.release.xcconfig"; path = "Target Support Files/Pods-FAMAApp/Pods-FAMAApp.release.xcconfig"; sourceTree = "<group>"; };
-		AA59F03EAE25BF35AE470291 /* Pods-FAMAApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAMAApp.debug.xcconfig"; path = "Target Support Files/Pods-FAMAApp/Pods-FAMAApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C3B7358E80067F506C5B6FDE /* Pods_FAMAApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FAMAApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30142A7D967DB285423557E /* Pods-FAMAApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FAMAApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FAMAApp/Pods-FAMAApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7A4BBB58D19B12C4B570B7D /* Pods_FAMAApp.framework in Frameworks */,
+				3C4765F9229EA7900048AAAA /* Pods_FAMAApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,13 +119,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3D8D422C1FA104BB9FA5B7AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3B7358E80067F506C5B6FDE /* Pods_FAMAApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E2E3689226AA0C2008B7660 = {
 			isa = PBXGroup;
 			children = (
 				4E2E3694226AA0C2008B7660 /* FAMAApp */,
 				4E2E3693226AA0C2008B7660 /* Products */,
-				C38AF8E45B761ED1A28A7F5B /* Pods */,
-				4EB7A83584D3EA99ED8A3544 /* Frameworks */,
+				B746D6F45F74855127C88609 /* Pods */,
+				3D8D422C1FA104BB9FA5B7AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,7 +148,7 @@
 		4E2E3694226AA0C2008B7660 /* FAMAApp */ = {
 			isa = PBXGroup;
 			children = (
-				4EEEFC1D228ED17100421CB0 /* GoogleService-Info.plist */,
+				3C4765F7229C72660048AAAA /* GoogleService-Info.plist */,
 				4E2E36A1226AA0C3008B7660 /* Info.plist */,
 				4E2E3695226AA0C2008B7660 /* AppDelegate.swift */,
 				3C00342F22807791006EBC2F /* UIApplicationExtension.swift */,
@@ -153,21 +161,13 @@
 			path = FAMAApp;
 			sourceTree = "<group>";
 		};
-		4EB7A83584D3EA99ED8A3544 /* Frameworks */ = {
+		B746D6F45F74855127C88609 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				001D5826A30E6C6DA05B49E0 /* Pods_FAMAApp.framework */,
+				E30142A7D967DB285423557E /* Pods-FAMAApp.debug.xcconfig */,
+				21CC67FD1BF2BAAB752AFF76 /* Pods-FAMAApp.release.xcconfig */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C38AF8E45B761ED1A28A7F5B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AA59F03EAE25BF35AE470291 /* Pods-FAMAApp.debug.xcconfig */,
-				5034016151688BD89FAE5B94 /* Pods-FAMAApp.release.xcconfig */,
-			);
-			path = Pods;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,11 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E2E36A4226AA0C3008B7660 /* Build configuration list for PBXNativeTarget "FAMAApp" */;
 			buildPhases = (
-				A8B07AE31035D77A9CBBD6F3 /* [CP] Check Pods Manifest.lock */,
+				4E473D5FC5B6FC5753A7651C /* [CP] Check Pods Manifest.lock */,
 				4E2E368E226AA0C2008B7660 /* Sources */,
 				4E2E368F226AA0C2008B7660 /* Frameworks */,
 				4E2E3690226AA0C2008B7660 /* Resources */,
-				928375B5E5F65CDF26A61D25 /* [CP] Embed Pods Frameworks */,
+				439F2CC6B0CA5C4E46CF0CE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,7 +237,7 @@
 			files = (
 				3C00342A2280661C006EBC2F /* FamaAlert.storyboard in Resources */,
 				4E2E36A0226AA0C3008B7660 /* LaunchScreen.storyboard in Resources */,
-				4EEEFC1E228ED17100421CB0 /* GoogleService-Info.plist in Resources */,
+				3C4765F8229C72660048AAAA /* GoogleService-Info.plist in Resources */,
 				3CFF4E4C22738B020002F89A /* ConfirmVoteAlert.storyboard in Resources */,
 				3C68EA772270BB6A00FEC596 /* Events.storyboard in Resources */,
 				3C68EA882270DF8700FEC596 /* ArtistTableViewCell.xib in Resources */,
@@ -250,7 +250,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		928375B5E5F65CDF26A61D25 /* [CP] Embed Pods Frameworks */ = {
+		439F2CC6B0CA5C4E46CF0CE7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,7 +258,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FAMAApp/Pods-FAMAApp-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-FAMAApp/Pods-FAMAApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -281,10 +281,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FAMAApp/Pods-FAMAApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FAMAApp/Pods-FAMAApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8B07AE31035D77A9CBBD6F3 /* [CP] Check Pods Manifest.lock */ = {
+		4E473D5FC5B6FC5753A7651C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -391,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -458,17 +458,18 @@
 		};
 		4E2E36A5226AA0C3008B7660 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA59F03EAE25BF35AE470291 /* Pods-FAMAApp.debug.xcconfig */;
+			baseConfigurationReference = E30142A7D967DB285423557E /* Pods-FAMAApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7GM8G5V55;
+				DEVELOPMENT_TEAM = 446LGN7Z63;
 				INFOPLIST_FILE = FAMAApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.fama.FAMAApp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.fama.FAMA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,17 +478,18 @@
 		};
 		4E2E36A6226AA0C3008B7660 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5034016151688BD89FAE5B94 /* Pods-FAMAApp.release.xcconfig */;
+			baseConfigurationReference = 21CC67FD1BF2BAAB752AFF76 /* Pods-FAMAApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V7GM8G5V55;
+				DEVELOPMENT_TEAM = 446LGN7Z63;
 				INFOPLIST_FILE = FAMAApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.fama.FAMAApp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.fama.FAMA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

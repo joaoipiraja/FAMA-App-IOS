@@ -33,7 +33,6 @@ class EventsViewController: UIViewController {
         
         let nib = UINib(nibName: "ArtistTableViewCell", bundle: .main)
         eventsTableView.register(nib, forCellReuseIdentifier: "artistCell")
-        eventsTableView.contentInsetAdjustmentBehavior = .never
         eventsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 70, right: 0)
         eventsTableView.layer.masksToBounds = true
         
@@ -70,17 +69,17 @@ class EventsViewController: UIViewController {
         loadJson()
 
         // MARK: Consulta ao Firebase - pegar o index de quem está apresentando
-        
-        Firestore.firestore().collection("atual").document("kRiOFBAAnHyMPy9bibvO")
-            .addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot else {
-                  print("Error fetching document: \(error!)")
-                    return
-                }
-                
-                print("Dados",document.data()?["index"])
-                self.loadCurrentArtist(index: ((document["index"] as? Int ?? 1) - 1) < 11 ? ((document["index"] as? Int ?? 1) - 1) : 10)
-        }
+        loadCurrentArtist(index: 0)
+//        Firestore.firestore().collection("atual").document("kRiOFBAAnHyMPy9bibvO")
+//            .addSnapshotListener { documentSnapshot, error in
+//                guard let document = documentSnapshot else {
+//                  print("Error fetching document: \(error!)")
+//                    return
+//                }
+//
+//                print("Dados",document.data()?["apresentacao"])
+//                self.loadCurrentArtist(index: ((document["apresentacao"] as? Int ?? 1) - 1) < 11 ? ((document["apresentacao"] as? Int ?? 1) - 1) : 10)
+//        }
         
     }
     
