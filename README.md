@@ -6,3 +6,5 @@ Planejamento no Trello- link: https://trello.com/invite/b/hgSnXkFY/7dd3a828bc47d
 Equipe de Desenvolvedores: João Victor Ipirajá e João Pedro Aragão 
 # 📖Apresentação do App
 https://prezi.com/abs-i1z0vqj3/?utm_campaign=share&utm_medium=copy
+# 📱Na loja de aplicativos
+https://itunes.apple.com/br/app/fama-2019/id1465639711#?platform=iphone
